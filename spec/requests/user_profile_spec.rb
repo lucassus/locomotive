@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe 'User profile feature' do
+feature 'User profile' do
   let!(:user) { create(:user, :email => 'user@email.com') }
 
-  before do
+  background do
     login_with(user)
     visit root_path
     click_link 'Profile'
   end
 
-  it 'should display user profile form' do
+  scenario 'an user can see his profile' do
     page.should have_content('Edit User')
 
     within 'form#edit_user.edit_user' do
@@ -21,22 +21,21 @@ describe 'User profile feature' do
   end
 
   describe 'change password' do
-    before do
+    background do
       fill_in 'Password', :with => 'new password'
       fill_in 'Password confirmation', :with => 'new password'
       fill_in 'Current password', :with => 'password'
       click_button 'Update'
     end
 
-    it 'should display flash message' do
+    scenario 'an user can see flash message' do
       page.should have_content('You updated your account successfully.')
     end
 
-    it 'should allow user to login with new password' do
+    scenario 'an user should be able to login with new password' do
       logout
-      login_with(user, 'new password')
+      login_with(user, :password => 'new password')
       page.should have_content('Signed in successfully.')
     end
   end
-
 end

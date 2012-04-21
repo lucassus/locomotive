@@ -1,8 +1,7 @@
 require 'spec_helper'
 
-describe 'User sign out feature' do
-
-  before do
+feature 'Sign out' do
+  background do
     user = create(:user, :email => 'user@email.com')
     login_with(user)
 
@@ -10,12 +9,8 @@ describe 'User sign out feature' do
     click_link 'Sign out'
   end
 
-  it 'should display flash message' do
+  scenario 'successfully sign out' do
     page.should have_content('Signed out successfully.')
-  end
-
-  it 'should redirect to the home page' do
     current_path.should == root_path
   end
-
 end

@@ -31,5 +31,7 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'launchy'
   gem 'capybara'
+  gem 'capybara-email'
 end
