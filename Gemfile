@@ -20,6 +20,9 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'debugger'
+  gem 'awesome_print'
+
   gem 'factory_girl_rails'
   gem 'faker'
 end
