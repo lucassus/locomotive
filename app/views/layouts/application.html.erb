@@ -14,7 +14,7 @@
 <div>
   <% if user_signed_in? %>
     <%= current_user.email %>
-    <%= link_to t(:'users.profile'), edit_user_registration_path %>
+    <%= link_to t(:'users.edit_profile'), edit_user_registration_path %>
     <%= link_to t(:'users.sign_out'), destroy_user_session_path, :method => :delete %>
   <% else %>
     <%= link_to t(:'users.sign_in'), new_user_session_path %>
