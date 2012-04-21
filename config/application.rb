@@ -68,6 +68,9 @@ module Locomotive
       g.helper          false
       g.stylesheets     false
       g.javascripts     false
+
+      g.test_framework      :rspec
+      g.fixture_replacement :factory_girl
     end
   end
 end
