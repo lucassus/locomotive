@@ -2,6 +2,7 @@
 
 module ApplicationHelper
 
+  # Possible flash messages types: info, notice, success, error (blue, yellow, green, red)
   def flash_messages
     return if flash.empty?
 
