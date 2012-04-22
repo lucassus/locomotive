@@ -155,6 +155,9 @@ GEM
       rubyzip
     shoulda-matchers (1.1.0)
       activesupport (>= 3.0.0)
+    simple_form (2.0.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -199,6 +202,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda-matchers
+  simple_form
   sqlite3
   therubyracer
   twitter-bootstrap-rails

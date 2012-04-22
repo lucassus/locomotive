@@ -48,14 +48,14 @@ feature 'Reset password' do
         page.should have_content('Change your password')
 
         page.should have_field('New password')
-        page.should have_field('Confirm new password')
+        page.should have_field('Confirm your new password')
       end
 
       context 'when user provide a new password' do
         background do
           within 'form#new_user' do
             fill_in 'New password', :with => '123123123'
-            fill_in 'Confirm new password', :with => '123123123'
+            fill_in 'Confirm your new password', :with => '123123123'
             click_button 'Change my password'
           end
         end
