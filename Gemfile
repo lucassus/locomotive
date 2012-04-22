@@ -32,6 +32,7 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'thin'
+  gem 'rails-footnotes'
 end
 
 group :test do
