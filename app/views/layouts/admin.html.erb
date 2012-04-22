@@ -19,14 +19,11 @@
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
   </head>
   <body>
-    <%= render '/layouts/navbar' %>
+    <%= render '/layouts/admin/navbar' %>
     <%= flash_messages %>
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <%= render '/layouts/sidebar' %>
-        </div>
         <div class="span9">
           <%= yield %>
         </div>

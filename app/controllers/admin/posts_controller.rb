@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Admin::PostsController < Admin::BaseController
   # GET /posts
   # GET /posts.json
   def index

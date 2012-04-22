@@ -13,15 +13,15 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to post.id, post_path(post) %></td>
+        <td><%= link_to post.id, admin_post_path(post) %></td>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%=l post.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_post_path(post), :class => 'btn btn-mini' %>
+                      edit_admin_post_path(post), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      post_path(post),
+                      admin_post_path(post),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                       :class => 'btn btn-mini btn-danger' %>
@@ -32,5 +32,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_post_path,
+            new_admin_post_path,
             :class => 'btn btn-primary' %>
