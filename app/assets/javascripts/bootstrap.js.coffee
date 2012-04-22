@@ -3,3 +3,4 @@ jQuery ->
   $(".tooltip").tooltip()
   $("a[rel=tooltip]").tooltip()
   $('.dropdown-toggle').dropdown()
+  $(".alert").alert()
