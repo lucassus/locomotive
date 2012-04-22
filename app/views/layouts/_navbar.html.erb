@@ -1,0 +1,19 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <%= link_to 'Locomotive', root_path, :class => 'brand' %>
+      <div class="container-fluid nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Home", root_path %></li>
+        </ul>
+
+        <%= render '/layouts/user_nav' %>
+      </div>
+    </div>
+  </div>
+</div>
