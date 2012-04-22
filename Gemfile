@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
+gem 'thin'
 gem 'devise'
 gem 'simple_form'
 
@@ -36,7 +37,6 @@ end
 
 group :development do
   gem 'heroku_san'
-  gem 'thin'
   gem 'rails-footnotes'
   gem 'quiet_assets'
 end
