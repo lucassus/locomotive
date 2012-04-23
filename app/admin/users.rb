@@ -8,10 +8,11 @@ ActiveAdmin.register User do
   filter :last_sign_in_at
 
   index do
-    column :id, :sortable => true
-    column :email, :sortable => true
-    column :created_at, :sortable => true
-    column :last_sign_in_at, :sortable => true
+    column :id
+    column :email
+    column :admin
+    column :created_at
+    column :last_sign_in_at
 
     default_actions
   end
