@@ -12,7 +12,7 @@ feature 'User profile' do
   scenario 'an user can see his profile' do
     page.should have_content('Edit User')
 
-    within 'form#edit_user.edit_user' do
+    within 'form#edit_user' do
       page.should have_field('Email')
       page.should have_field('Password')
       page.should have_field('Password confirmation')

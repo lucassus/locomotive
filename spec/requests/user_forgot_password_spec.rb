@@ -12,7 +12,7 @@ feature 'Reset password' do
   scenario 'an user can see new password request form' do
     page.should have_content('Forgot your password?')
 
-    within 'form#new_user.new_user' do
+    within 'form#new_user' do
       page.should have_field('Email')
       page.should have_button('Send me reset password instructions')
     end
