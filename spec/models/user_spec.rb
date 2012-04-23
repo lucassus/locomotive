@@ -17,6 +17,11 @@ describe User do
     it { should validate_uniqueness_of :email }
   end
 
+  describe 'factories' do
+    specify { build(:user).should be_valid }
+    specify { build(:admin_user).should be_valid }
+  end
+
   describe 'scopes' do
     describe '#admin' do
       let!(:first_admin) { create(:admin_user) }
