@@ -16,4 +16,18 @@ describe User do
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of :email }
   end
+
+  describe 'scopes' do
+    describe '#admin' do
+      let!(:first_admin) { create(:admin_user) }
+      let!(:second_admin) { create(:admin_user) }
+      before { 3.times { create(:user) } }
+
+      subject { User.admin }
+
+      it { should have(2).items }
+      it { should include(first_admin) }
+      it { should include(second_admin) }
+    end
+  end
 end
