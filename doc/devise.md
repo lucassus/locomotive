@@ -1,5 +1,6 @@
-== Basic devise routes
+# Basic devise routes
 
+```
         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
             user_session POST   /users/sign_in(.:format)       devise/sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -13,3 +14,4 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
   edit_user_registration GET    /users/edit(.:format)          devise/registrations#edit
                          PUT    /users(.:format)               devise/registrations#update
                          DELETE /users(.:format)               devise/registrations#destroy
+```

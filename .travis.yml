@@ -5,7 +5,7 @@ rvm:
   - 1.9.3
 
 before_script:
-  - "cp config/database.yml config/database.yml"
+  - "cp config/database.yml.example config/database.yml"
   - "RAILS_ENV=test rake db:create"
   - "RAILS_ENV=test rake db:migrate"
 

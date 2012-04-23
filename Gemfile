@@ -6,6 +6,11 @@ gem 'thin'
 gem 'devise'
 gem 'simple_form'
 
+# ActiveAdmin dependencies
+gem 'activeadmin'
+gem 'formtastic', '2.0.0'
+gem 'meta_search'
+
 group :production do
   gem 'pg'
 end

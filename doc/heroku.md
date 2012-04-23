@@ -7,4 +7,3 @@ Some useful links:
 In order to deploy to the staging instance execute the following command:
 `rake staging deploy`
 Note: application is deployed from the current branch!
-
