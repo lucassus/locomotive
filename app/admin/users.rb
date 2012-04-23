@@ -3,6 +3,10 @@ ActiveAdmin.register User do
   scope :all, :default => true
   scope :admin
 
+  filter :email
+  filter :created_at
+  filter :last_sign_in_at
+
   index do
     column :id, :sortable => true
     column :email, :sortable => true
