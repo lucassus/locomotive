@@ -5,7 +5,10 @@ gem 'rails', '3.2.3'
 gem 'thin'
 gem 'devise'
 gem 'simple_form'
+
+# ActiveAdmin dependencies
 gem 'activeadmin'
+gem 'formtastic', '2.0.0'
 gem 'meta_search'
 
 group :production do
