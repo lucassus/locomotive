@@ -1,14 +1,12 @@
 # Create admin user
-admin_user = User.new do |u|
-  u.email = 'admin@email.com'
+admin_user = User.find_or_create_by_email('admin@email.com') do |u|
   u.password = u.password_confirmation = 'password'
   u.admin = true
 end
 admin_user.save!
 
 # Create first user account
-user = User.new do |u|
-  u.email = 'user@email.com'
+user = User.find_or_create_by_email('user@email.com') do |u|
   u.password = u.password_confirmation = 'password'
 end
 user.save!
