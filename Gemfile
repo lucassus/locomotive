@@ -5,6 +5,7 @@ gem 'rails', '3.2.3'
 gem 'thin'
 gem 'devise'
 gem 'simple_form'
+gem 'settingslogic'
 
 # ActiveAdmin dependencies
 gem 'activeadmin'

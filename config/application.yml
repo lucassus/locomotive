@@ -1,0 +1,11 @@
+defaults: &defaults
+  app_name: Locomotive
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
