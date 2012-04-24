@@ -7,7 +7,10 @@
       </a>
 
       <ul class="dropdown-menu">
-        <li><%= link_to t(t('users.edit_profile'), :email => current_user.email), edit_user_registration_path, :title => t('users.edit_profile') %></li>
+        <li><%= link_to t('users.edit_profile'), edit_user_registration_path, :title => t('users.edit_profile') %></li>
+        <% if current_user.admin? %>
+          <li><%= link_to t('users.admin_panel'), admin_dashboard_path, :title => t('users.edit_profile') %></li>
+        <% end %>
         <li class="divider"></li>
         <li><%= link_to t('users.sign_out'), destroy_user_session_path, :method => :delete, :title => t('users.sign_out') %></li>
       </ul>
