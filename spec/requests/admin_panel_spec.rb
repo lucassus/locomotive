@@ -7,10 +7,12 @@ feature 'Admin panel' do
 
     background do
       login_with(user)
-      visit admin_dashboard_path
     end
 
     scenario 'should be able to access the admin panel' do
+      visit root_path
+      click_link 'Admin panel'
+
       current_path.should == admin_dashboard_path
       page.should have_content('Dashboard')
     end

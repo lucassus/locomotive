@@ -8,3 +8,4 @@ en:
     sign_out: 'Sign out'
     hello: 'Hello %{email}!'
     edit_profile: 'My profile'
+    admin_panel: 'Admin panel'

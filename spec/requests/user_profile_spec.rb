@@ -6,7 +6,7 @@ feature 'User profile' do
   background do
     login_with(user)
     visit root_path
-    click_link 'Profile'
+    click_link 'My profile'
   end
 
   scenario 'an user can see his profile' do
