@@ -5,6 +5,9 @@ FactoryGirl.define do
     password 'password'
     password_confirmation { password }
 
+    gender { ['male', 'female'].sample }
+    age { (15..99).to_a.sample }
+
     factory :admin_user do
       admin true
     end
