@@ -10,6 +10,7 @@ class UserSearchesController < ApplicationController
 
   def create
     @user_search = UserSearch.new(params[:user_search])
+
     if @user_search.valid?
       # All search params are valid, perform users search with meta_search
 
@@ -24,6 +25,7 @@ class UserSearchesController < ApplicationController
   end
 
   def destroy
+    # Clean up stored in the session search params
     session[:user_search] = nil
     redirect_to user_searches_path
   end
