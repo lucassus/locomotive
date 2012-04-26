@@ -1,0 +1,11 @@
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <ul>
+        <li>Email: <%= user.email %></li>
+        <li>Gender: <%= user.gender %></li>
+        <li>Age: <%= user.age %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>

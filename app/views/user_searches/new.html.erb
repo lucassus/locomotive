@@ -1,0 +1,9 @@
+<h1>Users search</h1>
+
+<%= simple_form_for(@user_search) do |f| %>
+  <%= f.input :gender_equals, :collection => ['male', 'female'] %>
+  <%= f.input :age_gte, :collection => (15..99) %>
+  <%= f.input :age_lte, :collection => (15..99) %>
+
+  <%= f.button :submit %>
+<% end %>
