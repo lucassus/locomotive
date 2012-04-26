@@ -10,3 +10,7 @@ user = User.find_or_create_by_email('user@email.com') do |u|
   u.password = u.password_confirmation = 'password'
 end
 user.save!
+
+if Rails.env.development?
+  20.times { Factory.create(:user) }
+end
