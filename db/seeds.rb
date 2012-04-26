@@ -12,5 +12,5 @@ end
 user.save!
 
 if Rails.env.development?
-  20.times { Factory.create(:user) }
+  100.times { Factory.create(:user) }
 end

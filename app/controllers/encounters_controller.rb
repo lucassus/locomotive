@@ -2,7 +2,9 @@ class EncountersController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    not_encountered_users = current_user.not_encountered_users
+    @user_search_attributes = user_search_attributes
+
+    not_encountered_users = current_user.not_encountered_users.search(user_search_attributes)
     @users_to_encounter_count = not_encountered_users.count
     @other_user = not_encountered_users.first
 

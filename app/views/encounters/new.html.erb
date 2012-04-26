@@ -1,5 +1,8 @@
 <h1>Encounters#new</h1>
 
+<span>Search criteria: <%= @user_search_attributes.inspect %></span>
+<%= link_to 'Change search criteria', new_user_searches_path %>
+
 <% if @encounter.present? %>
   <ul>
     <li>Email: <%= @other_user.email %></li>
