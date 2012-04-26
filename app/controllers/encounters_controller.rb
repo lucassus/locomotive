@@ -6,7 +6,7 @@ class EncountersController < ApplicationController
 
     not_encountered_users = current_user.not_encountered_users.search(user_search_attributes)
     @users_to_encounter_count = not_encountered_users.count
-    @other_user = not_encountered_users.first
+    @other_user = not_encountered_users.first(:order => 'RANDOM()')
 
     if @other_user.present?
       @encounter = Encounter.new do |e|
