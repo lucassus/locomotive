@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
     warden.logout(:user)
     throw(:warden, :scope => :user)
   end
+
+  def user_search_attributes
+    session[:user_search] || {}
+  end
 end

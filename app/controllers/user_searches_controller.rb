@@ -1,6 +1,11 @@
 class UserSearchesController < ApplicationController
+  def show
+    search = User.search(user_search_attributes)
+    @users = search.all
+  end
+
   def new
-    @user_search = UserSearch.new(session[:user_search])
+    @user_search = UserSearch.new(user_search_attributes)
   end
 
   def create
@@ -12,8 +17,7 @@ class UserSearchesController < ApplicationController
       search_attributes = @user_search.attributes
       session[:user_search] = search_attributes
 
-      @search = User.search(search_attributes)
-      @users = @search.all
+      redirect_to user_searches_path
     else
       render :new
     end
@@ -21,6 +25,6 @@ class UserSearchesController < ApplicationController
 
   def destroy
     session[:user_search] = nil
-    redirect_to root_path
+    redirect_to user_searches_path
   end
 end
