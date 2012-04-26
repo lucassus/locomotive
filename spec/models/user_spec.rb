@@ -17,16 +17,19 @@ describe User do
   end
 
   describe 'associations' do
+    let!(:user) { create(:user) }
+    let!(:first_user) { create(:user) }
+    let!(:second_user) { create(:user) }
+    let!(:not_popular_user) { create(:user) }
+
     it { should have_many(:encounters).dependent(:destroy) }
     it { should have_many(:willing_to_meet_users).through(:encounters) }
+    it { should have_many(:want_to_meet_users).through(:encounters) }
+
+    it { should have_many(:encounters_reverse).dependent(:destroy) }
+    it { should have_many(:willing_to_meet_me_users).through(:encounters_reverse) }
 
     describe '#willing_to_meet_users' do
-      let!(:user) { create(:user) }
-
-      let!(:first_user) { create(:user) }
-      let!(:second_user) { create(:user) }
-      let!(:not_popular_user) { create(:user) }
-
       before do
         create(:encounter, :user => user, :other_user => first_user)
         create(:encounter, :user => user, :other_user => second_user)
@@ -37,6 +40,53 @@ describe User do
       it { should have(2).items }
       it { should include(first_user) }
       it { should include(second_user) }
+      it { should_not include(user) }
+      it { should_not include(not_popular_user) }
+    end
+
+    describe '#want_to_meet_users' do
+      before do
+        create(:encounter, :user => user, :other_user => first_user, :interest_type => :meet_yes)
+        create(:encounter, :user => user, :other_user => second_user, :interest_type => :meet_maybe)
+      end
+
+      subject { user.want_to_meet_users }
+
+      it { should have(1).items }
+      it { should include(first_user) }
+      it { should_not include(second_user) }
+      it { should_not include(user) }
+      it { should_not include(not_popular_user) }
+    end
+
+    describe '#willing_to_meet_me_users' do
+      before do
+        create(:encounter, :user => first_user, :other_user => user)
+        create(:encounter, :user => not_popular_user, :other_user => user)
+      end
+
+      subject { user.willing_to_meet_me_users }
+
+      it { should have(2).items }
+      it { should include(first_user) }
+      it { should include(not_popular_user) }
+      it { should_not include(user) }
+      it { should_not include(second_user) }
+    end
+
+    describe '#want_to_meet_me_users' do
+      before do
+        create(:encounter, :user => first_user, :other_user => user, :interest_type => :meet_yes)
+        create(:encounter, :user => not_popular_user, :other_user => user, :interest_type => :meet_not)
+      end
+
+      subject { user.want_to_meet_me_users }
+
+      it { should have(1).items }
+      it { should include(first_user) }
+      it { should_not include(not_popular_user) }
+      it { should_not include(user) }
+      it { should_not include(second_user) }
     end
   end
 
@@ -61,6 +111,18 @@ describe User do
       it { should have(2).items }
       it { should include(first_admin) }
       it { should include(second_admin) }
+    end
+  end
+
+  describe "#want_to_meet_me?" do
+    let!(:other_user) { create(:user) }
+    let!(:not_popular_user) { create(:user) }
+
+    before { create(:encounter, :user => other_user, :other_user => subject, :interest_type => :meet_yes) }
+
+    it 'should return true if the other user want to meet the user' do
+      subject.want_to_meet_me?(other_user).should be_true
+      subject.want_to_meet_me?(not_popular_user).should be_false
     end
   end
 end
