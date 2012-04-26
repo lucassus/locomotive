@@ -112,6 +112,41 @@ describe User do
       it { should include(first_admin) }
       it { should include(second_admin) }
     end
+
+    describe '#not_encountered_users' do
+      let!(:user) { create(:user) }
+
+      let!(:first_user) { create(:user) }
+      let!(:second_user) { create(:user) }
+      let!(:third_user) { create(:user) }
+
+      context 'when the user has no encounters' do
+        subject { user.not_encountered_users }
+
+        it { should have(3).items }
+        it { should include(first_user) }
+        it { should include(second_user) }
+        it { should include(third_user) }
+        it { should_not include(user) }
+      end
+
+      context 'when the user has several encounters' do
+        let!(:yet_another_user) { create(:user) }
+
+        before do
+          create(:encounter, :user => user, :other_user => first_user)
+          create(:encounter, :user => user, :other_user => second_user)
+        end
+
+        subject { user.not_encountered_users }
+        it { should have(2).items }
+        it { should include(third_user) }
+        it { should include(yet_another_user) }
+        it { should_not include(user) }
+        it { should_not include(first_user) }
+        it { should_not include(second_user) }
+      end
+    end
   end
 
   describe "#want_to_meet_me?" do

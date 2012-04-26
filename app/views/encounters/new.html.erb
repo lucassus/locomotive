@@ -1,0 +1,15 @@
+<h1>Encounters#new</h1>
+
+<% if @encounter.present? %>
+  <ul>
+    <li>Email: <%= @other_user.email %></li>
+    <li>Gender: <%= @other_user.gender %></li>
+    <li>Age: <%= @other_user.age %></li>
+  </ul>
+
+  <%= render 'form', :encounter => @encounter, :interest_type => :yes %>
+  <%= render 'form', :encounter => @encounter, :interest_type => :maybe %>
+  <%= render 'form', :encounter => @encounter, :interest_type => :no %>
+<% end %>
+
+<span>Users to encounter: <%= @users_to_encounter_count %></span>

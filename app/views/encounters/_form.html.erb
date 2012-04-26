@@ -1,0 +1,5 @@
+<%= simple_form_for(encounter) do |f| %>
+  <%= f.input :other_user_id, :as => :hidden %>
+  <%= f.input :interest_type, :as => :hidden, :input_html => { :value => :"meet_#{interest_type}" } %>
+  <%= f.button :submit, interest_type.to_s.titleize %>
+<% end %>
