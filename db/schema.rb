@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426102650) do
+ActiveRecord::Schema.define(:version => 20120426115849) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -28,12 +28,16 @@ ActiveRecord::Schema.define(:version => 20120426102650) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "encounters", :force => true do |t|
+    t.integer  "user_id",                     :null => false
+    t.integer  "other_user_id",               :null => false
+    t.string   "interest_type", :limit => 32, :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
+
+  add_index "encounters", ["interest_type"], :name => "index_encounters_on_interest_type"
+  add_index "encounters", ["user_id", "other_user_id"], :name => "index_encounters_on_user_id_and_other_user_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
+gem 'foreigner'
 gem 'thin'
 gem 'devise'
 gem 'simple_form'
