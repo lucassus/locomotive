@@ -1,3 +1,4 @@
+# Simple mode for users search form
 class UserSearch
   include ActiveRecord::Validations
   include ActiveModel::Conversion
