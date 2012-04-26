@@ -12,9 +12,9 @@ class UserSearch
 
   ALLOWED_FIELDS = [:gender_equals, :age_gte, :age_lte].freeze
 
-  def initialize(attributes = {})
+  def initialize(attributes)
+    attributes = {} unless attributes.present?
     self.attributes = attributes
-    yield self if block_given?
   end
 
   def attributes=(attributes)
