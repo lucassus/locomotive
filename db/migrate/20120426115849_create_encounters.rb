@@ -8,8 +8,8 @@ class CreateEncounters < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_foreign_key :encounters, :users, :dependent => :delete
-    add_foreign_key :encounters, :users, :column => :other_user_id, :dependent => :delete
+    add_index :encounters, :user_id
+    add_index :encounters, :other_user_id
     add_index :encounters, :interest_type
     add_index :encounters, [:user_id, :other_user_id], :unique => true
   end

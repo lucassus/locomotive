@@ -25,4 +25,5 @@ class User < ActiveRecord::Base
   # TODO
   # maybe_want_to_meet_me?
   # do_not_want_to_meet_me?
+  # etc.
 end

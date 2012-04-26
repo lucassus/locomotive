@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(:version => 20120426115849) do
   end
 
   add_index "encounters", ["interest_type"], :name => "index_encounters_on_interest_type"
+  add_index "encounters", ["other_user_id"], :name => "index_encounters_on_other_user_id"
   add_index "encounters", ["user_id", "other_user_id"], :name => "index_encounters_on_user_id_and_other_user_id", :unique => true
+  add_index "encounters", ["user_id"], :name => "index_encounters_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
