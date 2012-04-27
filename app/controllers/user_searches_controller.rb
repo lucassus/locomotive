@@ -1,7 +1,7 @@
 class UserSearchesController < ApplicationController
   def show
     search = User.search(user_search_attributes)
-    @users = search.all
+    @users = search.page(params[:page]).per(10)
   end
 
   def new

@@ -3,18 +3,17 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 
 gem 'thin'
+gem 'pg'
+
 gem 'devise'
 gem 'simple_form'
+gem 'kaminari'
 gem 'settingslogic'
 
 # ActiveAdmin dependencies
 gem 'activeadmin'
 gem 'formtastic', '2.0.0'
 gem 'meta_search'
-
-group :production do
-  gem 'pg'
-end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,8 +31,6 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 
 group :development, :test do
-  gem 'sqlite3'
-
   gem 'debugger'
   gem 'awesome_print'
   gem 'progress_bar'
