@@ -17,7 +17,7 @@ if Rails.env.development?
   n = 10_000
   bar = ProgressBar.new(n)
   n.times do
-    Factory.create(:user)
+    FactoryGirl.create(:user)
     bar.increment!
   end
 end

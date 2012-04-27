@@ -65,6 +65,10 @@ module Locomotive
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # Log the query plan for queries taking more than this (works
+    # with SQLite, MySQL, and PostgreSQL)
+    config.active_record.auto_explain_threshold_in_seconds = 0.5
+
     config.generators do |g|
       g.orm             :active_record
       g.template_engine :erb
