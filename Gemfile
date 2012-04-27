@@ -36,6 +36,7 @@ group :development, :test do
 
   gem 'debugger'
   gem 'awesome_print'
+  gem 'progress_bar'
 
   gem 'factory_girl_rails'
   gem 'faker'

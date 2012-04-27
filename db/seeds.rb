@@ -12,5 +12,12 @@ end
 user.save!
 
 if Rails.env.development?
-  100.times { Factory.create(:user) }
+  require 'progress_bar'
+
+  n = 10_000
+  bar = ProgressBar.new(n)
+  n.times do
+    Factory.create(:user)
+    bar.increment!
+  end
 end
