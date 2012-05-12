@@ -16,6 +16,7 @@ class SubscriptionsController < ApplicationController
 
   def create
     result = Recurly.js.fetch(params[:recurly_token])
+    logger.info result
 
     subscription = Subscription.new do |s|
       s.user = current_user
@@ -25,7 +26,6 @@ class SubscriptionsController < ApplicationController
     subscription.save!
     flash[:success] = 'Subscription was successfully created!'
 
-    redirect_to root_path
+    redirect_to subscriptions_path
   end
-
 end

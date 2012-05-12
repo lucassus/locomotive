@@ -6,25 +6,35 @@
 
 $(function() {
 
+  Recurly.config({
+    subdomain: 'lukasz-bandzarewicz',
+    currency: 'GBP',
+    country: 'PL'
+  });
+
   // Initialize recurly form
-  var $recurlyForm = $('#recurly-form');
-  if ($recurlyForm.length > 0) {
-    Recurly.config({
-      subdomain: 'lukasz-bandzarewicz',
-      currency: 'GBP',
-      country: 'PL'
-    });
-
+  var $recurlySubsctiptionForm = $('#recurly-subscription-form');
+  if ($recurlySubsctiptionForm.length > 0) {
     Recurly.buildSubscriptionForm({
-      target: '#' + $recurlyForm.attr('id'),
-      planCode: $recurlyForm.data('plan-code'),
-      successURL: $recurlyForm.data('success-url'),
-      signature: $recurlyForm.data('signature'),
+      target: '#' + $recurlySubsctiptionForm.attr('id'),
+      planCode: $recurlySubsctiptionForm.data('plan-code'),
+      successURL: $recurlySubsctiptionForm.data('success-url'),
+      signature: $recurlySubsctiptionForm.data('signature'),
 
-      accountCode: $recurlyForm.data('account-code'),
+      accountCode: $recurlySubsctiptionForm.data('account-code'),
       account: {
-        email: $recurlyForm.data('account-email')
+        email: $recurlySubsctiptionForm.data('account-email')
       }
+    });
+  }
+
+  var $recurlyBillingInfoForm = $('#recurly-billing-info-form');
+  if ($recurlyBillingInfoForm.length > 0) {
+    Recurly.buildBillingInfoUpdateForm({
+      target: '#' + $recurlyBillingInfoForm.attr('id'),
+      successURL: $recurlyBillingInfoForm.data('success-url'),
+      accountCode: $recurlyBillingInfoForm.data('account-code'),
+      signature: $recurlyBillingInfoForm.data('signature')
     });
   }
 
