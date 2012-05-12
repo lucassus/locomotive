@@ -15,15 +15,17 @@ $(function() {
   // Initialize recurly form
   var $recurlySubsctiptionForm = $('#recurly-subscription-form');
   if ($recurlySubsctiptionForm.length > 0) {
+    var options = $recurlySubsctiptionForm.data('options');
+
     Recurly.buildSubscriptionForm({
       target: '#' + $recurlySubsctiptionForm.attr('id'),
-      planCode: $recurlySubsctiptionForm.data('plan-code'),
-      successURL: $recurlySubsctiptionForm.data('success-url'),
-      signature: $recurlySubsctiptionForm.data('signature'),
+      planCode: options.planCode,
+      successURL: options.successURL,
+      signature: options.signature,
 
-      accountCode: $recurlySubsctiptionForm.data('account-code'),
+      accountCode: options.account.code,
       account: {
-        email: $recurlySubsctiptionForm.data('account-email')
+        email: options.account.email
       }
     });
   }

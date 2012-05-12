@@ -1,8 +1,5 @@
 <h2>New subscription</h2>
 
-<div id="recurly-subscription-form"
-     data-plan-code="<%= @plan_code %>"
-     data-success-url="<%= subscriptions_url %>"
-     data-signature="<%= @signature %>"
-     data-account-code="<%= current_user.recurly_account_code %>"
-     data-account-email="<%= current_user.email %>"></div>
+<%= new_subscription_form(@signature, @plan_code, {
+    'code' => current_user.recurly_account_code,
+    'email' => current_user.email }) %>
