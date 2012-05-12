@@ -8,6 +8,7 @@
 
       <ul class="dropdown-menu">
         <li><%= link_to t('users.edit_profile'), edit_user_registration_path, :title => t('users.edit_profile') %></li>
+        <li><%= link_to t('users.my_subscriptions'), subscriptions_path %></li>
         <% if current_user.admin? %>
           <li><%= link_to t('users.admin_panel'), admin_dashboard_path, :title => t('users.edit_profile') %></li>
         <% end %>

@@ -1,0 +1,26 @@
+<h2>My subscriptions</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>uuid</th>
+      <th>Plan</th>
+      <th>Quantity</th>
+      <th>State</th>
+      <th>Activated at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.uuid %></td>
+        <td><%= subscription.plan.name %></td>
+        <td><%= subscription.quantity %></td>
+        <td><%= subscription.state %></td>
+        <td><%= subscription.activated_at %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
