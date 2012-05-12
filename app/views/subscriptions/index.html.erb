@@ -8,7 +8,6 @@
       <th>Quantity</th>
       <th>State</th>
       <th>Activated at</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -19,10 +18,9 @@
         <td><%= subscription.quantity %></td>
         <td><%= subscription.state %></td>
         <td><%= subscription.activated_at %></td>
-        <td>
-          <%= link_to 'Edit billing info', edit_billing_info_path(subscription.uuid) %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Edit billing info', edit_billing_info_path %>
