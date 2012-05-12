@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   scope :admin, where(:admin => true)
 
   has_many :subscriptions
+
+  def recurly_account_code
+    "#{id}@recurly"
+  end
 end

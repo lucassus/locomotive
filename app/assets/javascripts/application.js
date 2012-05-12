@@ -21,6 +21,7 @@ $(function() {
       successURL: $recurlyForm.data('success-url'),
       signature: $recurlyForm.data('signature'),
 
+      accountCode: $recurlyForm.data('account-code'),
       account: {
         email: $recurlyForm.data('account-email')
       }
