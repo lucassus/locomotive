@@ -11,6 +11,7 @@ gem 'settingslogic'
 gem 'activeadmin'
 gem 'formtastic', '2.0.0'
 gem 'meta_search'
+gem 'recurly'
 
 group :production do
   gem 'pg'

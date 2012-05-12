@@ -2,6 +2,9 @@ defaults: &defaults
   app_name: Locomotive
   google_analytics:
     enabled: false
+  recurly:
+    api_key: '60a27614b77d4e7a96eaedd8b8628b02'
+    private_key: '52578649a9334062adef085d2f361b85'
 
 development:
   <<: *defaults
