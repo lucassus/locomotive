@@ -32,11 +32,13 @@ $(function() {
 
   var $recurlyBillingInfoForm = $('#recurly-billing-info-form');
   if ($recurlyBillingInfoForm.length > 0) {
+    var options = $recurlyBillingInfoForm.data('options');
+
     Recurly.buildBillingInfoUpdateForm({
       target: '#' + $recurlyBillingInfoForm.attr('id'),
-      successURL: $recurlyBillingInfoForm.data('success-url'),
-      accountCode: $recurlyBillingInfoForm.data('account-code'),
-      signature: $recurlyBillingInfoForm.data('signature')
+      successURL: options.successURL,
+      signature: options.signature,
+      accountCode: options.account.code
     });
   }
 

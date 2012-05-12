@@ -13,4 +13,16 @@ module SubscriptionsHelper
     end
   end
 
+  def billing_info_form(signature, account = {})
+    options = {
+      'successURL' => billing_info_index_url,
+      'signature' => signature,
+      'account' => account
+    }
+
+    content_tag(:div, :id => 'recurly-billing-info-form', :'data-options' => options.to_json) do
+      # nothing here
+    end
+  end
+
 end
