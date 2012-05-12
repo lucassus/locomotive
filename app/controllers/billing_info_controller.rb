@@ -3,6 +3,9 @@ class BillingInfoController < ApplicationController
 
   def edit
     @signature = Recurly.js.sign :account => { :account_code => current_user.recurly_account_code }
+
+    account = Recurly::Account.find(current_user.recurly_account_code)
+    @billing_info = account.billing_info
   end
 
   def create

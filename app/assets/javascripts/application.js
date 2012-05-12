@@ -38,7 +38,21 @@ $(function() {
       target: '#' + $recurlyBillingInfoForm.attr('id'),
       successURL: options.successURL,
       signature: options.signature,
-      accountCode: options.account.code
+      accountCode: options.account.code,
+      billingInfo: {
+        firstName: options.billingInfo.firstName,
+        lastName: options.billingInfo.lastName,
+        address1: options.billingInfo.address1,
+        address2: options.billingInfo.address2,
+        country: options.billingInfo.country,
+        city: options.billingInfo.city,
+        state: options.billingInfo.state,
+        zip: options.billingInfo.zip
+      },
+      afterInject: function() {
+        var lastFour = options.billingInfo.lastFour;
+        $('.field.card_number .placeholder').text('xxxx-xxxx-xxxx-' + lastFour);
+      }
     });
   }
 
