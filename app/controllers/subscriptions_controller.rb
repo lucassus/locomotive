@@ -30,7 +30,15 @@ class SubscriptionsController < ApplicationController
 
     subscription.save!
     flash[:success] = 'Subscription was successfully created!'
+    redirect_to subscriptions_path
+  end
 
+  def cancel
+    subscription = Recurly::Subscription.find(params[:id])
+    logger.info subscription
+    subscription.cancel
+
+    flash[:success] = 'Subscription was successfully cancelled!'
     redirect_to subscriptions_path
   end
 end

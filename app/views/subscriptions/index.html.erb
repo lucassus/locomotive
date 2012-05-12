@@ -8,6 +8,7 @@
       <th>Quantity</th>
       <th>State</th>
       <th>Activated at</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,10 @@
         <td><%= subscription.quantity %></td>
         <td><%= subscription.state %></td>
         <td><%= subscription.activated_at %></td>
+        <td>
+          <%= link_to_if subscription.state == 'active', 'Cancel', cancel_subscription_path(subscription.uuid),
+                         :method => :put, :confirm => 'Are you sure?' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
