@@ -3,10 +3,15 @@ class SubscriptionsController < ApplicationController
   protect_from_forgery :except => :create
 
   def index
-    account = Recurly::Account.find(current_user.recurly_account_code)
-    logger.info account
+    begin
+      account = Recurly::Account.find(current_user.recurly_account_code)
+      logger.info account
 
-    @subscriptions = account.subscriptions
+      @subscriptions = account.subscriptions
+    rescue
+      flash[:error] = 'Cannot find the account'
+      redirect_to root_path
+    end
   end
 
   def new
