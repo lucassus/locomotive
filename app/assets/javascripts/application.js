@@ -19,7 +19,11 @@ $(function() {
       target: '#' + $recurlyForm.attr('id'),
       planCode: $recurlyForm.data('plan-code'),
       successURL: $recurlyForm.data('success-url'),
-      signature: $recurlyForm.data('signature')
+      signature: $recurlyForm.data('signature'),
+
+      account: {
+        email: $recurlyForm.data('account-email')
+      }
     });
   }
 

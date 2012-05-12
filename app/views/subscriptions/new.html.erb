@@ -2,4 +2,5 @@
 <div id="recurly-form"
      data-plan-code="<%= @plan_code %>"
      data-success-url="<%= subscriptions_url %>"
-     data-signature="<%= @signature %>" ></div>
+     data-signature="<%= @signature %>"
+     data-account-email="<%= current_user.email %>"></div>
