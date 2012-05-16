@@ -2,10 +2,25 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  are_you_sure: 'Are you sure?'
+  actions:
+    back: 'Back'
   users:
     sign_in: 'Sign in'
     sign_up: 'Sign up'
     sign_out: 'Sign out'
+    forgot_your_password: 'Forgot your password?'
+    send_me_reset_password_instructions: 'Send me reset password instructions'
+    change_your_password: 'Change your password'
+    change_my_password: 'Change my password'
+    new_password: 'New password'
+    confirm_new_password: 'Confirm new password'
+    update_profile: 'Update profile'
+    cancel_my_account: 'Cancel my account'
     hello: 'Hello %{email}!'
     edit_profile: 'My profile'
     admin_panel: 'Admin panel'
+    cancel_my_account: 'Cancel my account'
+  labels:
+    leave_it_blank: "leave it blank if you don't want to change it"
+    we_need_your_password: 'we need your current password to confirm your changes'

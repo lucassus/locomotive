@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  # pass locales to the url helper methods, see: http://guides.rubyonrails.org/i18n.html#setting-the-locale-from-the-url-params
+  def default_url_options(options = {})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.default_locale != I18n.locale ? I18n.locale : nil }
+  end
 end

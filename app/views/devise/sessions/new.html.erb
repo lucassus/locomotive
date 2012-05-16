@@ -1,4 +1,4 @@
-<h2>Sign in</h2>
+<h2><%= t('users.sign_in') %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
   <div class="inputs">
@@ -8,7 +8,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign in" %>
+    <%= f.button :submit, t('users.sign_in') %>
   </div>
 <% end %>
 
