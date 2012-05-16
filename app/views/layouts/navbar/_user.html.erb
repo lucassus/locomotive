@@ -1,5 +1,5 @@
 <ul class="nav pull-right">
-  <% if current_user.present? %>
+  <% if user_signed_in? %>
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-type="dropdown">
         <%= t('users.hello', :email => current_user.email) %>
