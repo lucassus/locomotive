@@ -6,10 +6,20 @@
 
 # Ignore bundler config
 /.bundle
+/.bin
+/vendor/bundle
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
+/config/database.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore reports
+/reports
+
+# Ignore project files
+/.idea
+/*.iml
