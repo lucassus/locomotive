@@ -8,7 +8,13 @@
           <li><%= link_to 'Home', root_path %></li>
         </ul>
 
-        <%= render '/layouts/navbar/user' %>
+        <ul class="nav pull-right">
+          <%= render '/layouts/navbar/locale' %>
+        </ul>
+
+        <ul class="nav pull-right">
+          <%= render '/layouts/navbar/user' %>
+        </ul>
       </div>
     </div>
   </div>

@@ -10,6 +10,8 @@ require 'capybara/email/rspec'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+I18n.default_locale = I18n.locale = :en
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Macros::UserLogin, :type => :request

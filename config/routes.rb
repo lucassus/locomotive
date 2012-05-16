@@ -1,6 +1,8 @@
 Locomotive::Application.routes.draw do
-  ActiveAdmin.routes(self)
-  devise_for :users
+  scope '(:locale)', :locale => /en|pl/ do
+    ActiveAdmin.routes(self)
+    devise_for :users
 
-  root :to => 'home#index'
+    root :to => 'home#index'
+  end
 end
