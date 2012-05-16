@@ -14,7 +14,7 @@ en:
     change_your_password: 'Change your password'
     change_my_password: 'Change my password'
     new_password: 'New password'
-    confirm_new_password: 'Confirm new password'
+    confirm_your_new_password: 'Confirm your new password'
     update_profile: 'Update profile'
     cancel_my_account: 'Cancel my account'
     hello: 'Hello %{email}!'
