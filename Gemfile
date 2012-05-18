@@ -7,6 +7,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'simple_form'
 gem 'settingslogic'
+gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controller.git'
 
 # ActiveAdmin dependencies
 gem 'activeadmin'

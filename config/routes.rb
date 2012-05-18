@@ -3,7 +3,9 @@ Locomotive::Application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users
 
-    resources :posts, :only => [:index, :show]
+    focused_controller_routes do
+      resources :posts, :only => [:index, :show]
+    end
 
     root :to => 'home#index'
   end

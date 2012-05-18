@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jonleighton/focused_controller.git
+  revision: c249df85a02568d6a9846dba938eddf46e5c79a1
+  specs:
+    focused_controller (0.1.0)
+      actionpack (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -264,6 +271,7 @@ DEPENDENCIES
   devise-i18n
   factory_girl_rails
   faker
+  focused_controller!
   formtastic (= 2.0.0)
   heroku_san
   jquery-rails
