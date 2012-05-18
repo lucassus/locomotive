@@ -8,4 +8,9 @@ class Post < ActiveRecord::Base
 
   ## Validations
   validates :title, :presence => true
+
+  def to_param
+    sanitized_title = self.title.downcase.gsub(/\?!/, '').gsub(/[^a-z0-9]+/i, '-')
+    "#{self.id}-#{sanitized_title}"
+  end
 end

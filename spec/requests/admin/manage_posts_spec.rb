@@ -73,6 +73,7 @@ feature 'Admin can manage posts' do
 
       fill_in 'Title', :with => 'New post title'
       click_button 'Update Post'
+      post.reload
     end
 
     within '.flashes' do

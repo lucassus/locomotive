@@ -45,4 +45,18 @@ describe Post do
     end
   end
 
+  describe '#to_param' do
+    let(:id) { 666 }
+    let(:title) { 'Sample post title?!' }
+    subject { create(:post, :id => id, :title => title) }
+
+    it 'should include post id at the beginning' do
+      subject.to_param.should match /^#{id}/
+    end
+
+    it 'should include escaped post title' do
+      subject.to_param.should == '666-sample-post-title'
+    end
+  end
+
 end
