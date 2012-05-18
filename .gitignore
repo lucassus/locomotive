@@ -23,3 +23,6 @@
 # Ignore project files
 /.idea
 /*.iml
+
+# Ignore custom rails footnotes
+/.rails_footnotes
