@@ -7,6 +7,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'simple_form'
 gem 'settingslogic'
+gem 'bluecloth'
 
 # ActiveAdmin dependencies
 gem 'activeadmin'
@@ -31,6 +32,7 @@ end
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'markitup_rails'
 
 group :development, :test do
   gem 'sqlite3'
