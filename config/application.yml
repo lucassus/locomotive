@@ -5,6 +5,9 @@ defaults: &defaults
   http_auth:
     login: 'locomotive'
     password: 'password'
+  exception_notification:
+    sender_address: 'error@locomotive.com'
+    exception_recipients: 'lukasz@llp.pl'
 
 development:
   <<: *defaults

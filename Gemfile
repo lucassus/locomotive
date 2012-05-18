@@ -8,6 +8,7 @@ gem 'devise-i18n'
 gem 'simple_form'
 gem 'settingslogic'
 gem 'bluecloth'
+gem 'exception_notification'
 
 # ActiveAdmin dependencies
 gem 'activeadmin'
