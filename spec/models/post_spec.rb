@@ -16,17 +16,32 @@ describe Post do
   end
 
   describe 'scopes' do
-    describe '.published' do
-      let!(:first_published_post) { create(:published_post) }
-      let!(:second_published_post) { create(:published_post) }
-      let!(:post) { create(:post) }
+    let!(:first_published_post) { create(:published_post, :created_at => 1.day.ago) }
+    let!(:second_published_post) { create(:published_post) }
+    let!(:unpublished_post) { create(:unpublished_post) }
 
+    describe '.published' do
       subject { Post.published }
 
       it { should have(2).items }
       it { should include(first_published_post) }
       it { should include(second_published_post) }
-      it { should_not include(post) }
+      it { should_not include(unpublished_post) }
+    end
+
+    describe '.unpublished' do
+      subject { Post.unpublished }
+
+      it { should have(1).item }
+      it { should include(unpublished_post) }
+    end
+
+    describe '.recent' do
+      subject { Post.recent(2) }
+
+      it { should have(2).items }
+      its(:first) { should == second_published_post }
+      its(:second) { should == first_published_post }
     end
   end
 
