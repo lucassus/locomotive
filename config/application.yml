@@ -2,6 +2,9 @@ defaults: &defaults
   app_name: Locomotive
   google_analytics:
     enabled: false
+  http_auth:
+    login: 'locomotive'
+    password: 'password'
 
 development:
   <<: *defaults
