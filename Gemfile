@@ -27,13 +27,12 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platform => :ruby
-
   gem 'uglifier', '>= 1.0.3'
-end
 
-gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
-gem 'markitup_rails'
+  gem 'jquery-rails'
+  gem 'twitter-bootstrap-rails'
+  gem 'markitup_rails'
+end
 
 group :development, :test do
   gem 'sqlite3'
