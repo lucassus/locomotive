@@ -4,8 +4,11 @@ gem 'rails', '3.2.3'
 
 gem 'thin'
 gem 'devise'
+gem 'devise-i18n'
 gem 'simple_form'
 gem 'settingslogic'
+gem 'bluecloth'
+gem 'exception_notification'
 
 # ActiveAdmin dependencies
 gem 'activeadmin'
@@ -25,13 +28,13 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platform => :ruby
-
   gem 'uglifier', '>= 1.0.3'
-end
 
-# JavaScript libraries
-gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
+  # JavaScript libraries
+  gem 'jquery-rails'
+  gem 'twitter-bootstrap-rails'
+  gem 'markitup_rails'
+end
 
 group :development, :test do
   gem 'sqlite3'
@@ -56,4 +59,7 @@ group :test do
   gem 'launchy'
   gem 'capybara'
   gem 'capybara-email'
+
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
 end

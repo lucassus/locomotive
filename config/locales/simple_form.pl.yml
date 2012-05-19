@@ -1,23 +1,22 @@
-en:
+pl:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Tak'
+    "no": 'Nie'
     required:
-      text: 'required'
+      text: 'pole jest wymagane'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Some errors were found, please take a look:"
+      default_message: "Wystąpiły błędy, proszę poprawić:"
     # Labels and hints examples
-    # labels:
-    #   password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail para efetuar o sign in.'
-    #     edit:
-    #       email: 'E-mail.'
+    labels:
+      user:
+        email: 'Adres e-email'
+        password: 'Hasło'
+        password_confirmation: 'Hasło (powtórzenie)'
+        remember_me: 'Zapamiętaj mnie na tym komputerze'
     # hints:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'

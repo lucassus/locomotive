@@ -75,5 +75,9 @@ module Locomotive
       g.test_framework      :rspec
       g.fixture_replacement :factory_girl
     end
+
+    config.middleware.use ExceptionNotifier,
+                          :sender_address => 'error@locomotive.com',
+                          :exception_recipients => 'lucassus@gmail.com'
   end
 end

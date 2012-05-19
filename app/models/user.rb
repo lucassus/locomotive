@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
+  ## Scopes
   scope :admin, where(:admin => true)
 
   has_many :subscriptions

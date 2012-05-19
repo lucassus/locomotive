@@ -5,6 +5,12 @@ defaults: &defaults
   recurly:
     api_key: '60a27614b77d4e7a96eaedd8b8628b02'
     private_key: '52578649a9334062adef085d2f361b85'
+  http_auth:
+    login: 'locomotive'
+    password: 'password'
+  exception_notification:
+    sender_address: 'error@locomotive.com'
+    exception_recipients: 'lukasz@llp.pl'
 
 development:
   <<: *defaults

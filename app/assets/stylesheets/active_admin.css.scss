@@ -1,6 +1,24 @@
+/*
+*= require skins/markitup/style.css
+*= require sets/markdown/style.css
+*/
+
 // Active Admin CSS Styles
 @import "active_admin/mixins";
 @import "active_admin/base";
 
 // To customize the Active Admin interfaces, add your
 // styles here:
+
+.admin_posts, .admin_static_pages {
+  .markdown {
+    float: left;
+  }
+
+  .markItUpEditor {
+    background: none;
+    border: none;
+    padding: 5px;
+    width: 98%;
+  }
+}

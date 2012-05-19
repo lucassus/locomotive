@@ -15,4 +15,12 @@ module ApplicationHelper
     end
   end
 
+  def switch_locale_link(locale)
+    link_to locale, url_for(:locale => I18n.default_locale != locale.to_sym ? locale.to_sym : nil)
+  end
+
+  def markdown(text)
+    BlueCloth.new(text).to_html
+  end
+
 end

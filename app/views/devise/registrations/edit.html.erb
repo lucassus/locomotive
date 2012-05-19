@@ -6,18 +6,18 @@
 
   <div class="inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+    <%= f.input :password, :autocomplete => "off", :hint => t('labels.leave_it_blank'), :required => false %>
     <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+    <%= f.input :current_password, :hint => t('labels.we_need_your_password'), :required => true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, t('users.update_profile') %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3><%= t('users.cancel_my_account') %></h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", user_registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+<p><%= link_to t('users.cancel_my_account'), user_registration_path(resource_name), :confirm => t('are_you_sure'), :method => :delete %>.</p>
 
-<%= link_to "Back", :back %>
+<%= link_to t('actions.back'), :back %>
