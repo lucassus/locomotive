@@ -10,17 +10,9 @@
 // To customize the Active Admin interfaces, add your
 // styles here:
 
-.admin_posts {
-  #main_content img {
-    max-width: 100%;
-  }
-
+.admin_posts, .admin_static_pages {
   .markdown {
     float: left;
-  }
-
-  .post {
-    margin-top: 20px;
   }
 
   .markItUpEditor {

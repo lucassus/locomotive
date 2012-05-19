@@ -4,9 +4,10 @@ Locomotive::Application.routes.draw do
     devise_for :users
 
     resources :posts, :only => [:index, :show]
+    resources :static_pages, :only => [:show]
 
     root :to => 'home#index'
   end
 
-  match "dummy_error" => 'home#dummy_error' unless Rails.env.production?
+  match 'dummy_error' => 'home#dummy_error' unless Rails.env.production?
 end

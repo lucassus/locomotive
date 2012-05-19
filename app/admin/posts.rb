@@ -32,6 +32,8 @@ ActiveAdmin.register Post do
     span { "Published: #{post.published?} |" }
     span { "Created at: #{post.created_at} |" }
     span { "Updated at: #{post.updated_at}" }
+
+    active_admin_comments
   end
 
 end

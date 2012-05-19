@@ -15,3 +15,9 @@ if Rails.env.development?
   20.times { Factory.create(:user) }
   20.times { Factory.create(:post) }
 end
+
+[:about, :contact].each do |name|
+  StaticPage.create! do |page|
+    page.name = name
+  end
+end

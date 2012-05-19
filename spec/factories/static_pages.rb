@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :static_page do
-    body { Faker::Lorem.paragraphs.join("\n\n") }
+    content { Faker::Lorem.paragraphs.join("\n") }
   end
 end
