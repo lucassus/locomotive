@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
     title { Faker::Name.title }
-    body { Faker::Lorem.paragraphs.join("\n\n") }
+    body { Faker::Lorem.paragraphs.join("\n") }
     published { [true, false].sample }
 
     factory :published_post do
