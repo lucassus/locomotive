@@ -1,5 +1,5 @@
 <h2>New subscription</h2>
 
-<%= new_subscription_form(@signature, @plan_code, {
+<%= new_subscription_form(@plan_code, {
     'code' => current_user.recurly_account_code,
     'email' => current_user.email }) %>

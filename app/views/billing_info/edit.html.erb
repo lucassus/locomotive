@@ -1,6 +1,6 @@
 <h2>Editing billing info</h2>
 
-<%= billing_info_form(@signature, { 'code' => current_user.recurly_account_code }, {
+<%= billing_info_form({ 'code' => current_user.recurly_account_code }, {
     'firstName' => @billing_info.first_name,
     'lastName' => @billing_info.last_name,
     'address1' => @billing_info.address1,

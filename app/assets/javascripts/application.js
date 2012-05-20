@@ -5,7 +5,6 @@
 //= require_tree .
 
 $(function() {
-
   Recurly.config({
     subdomain: 'lukasz-bandzarewicz',
     currency: 'GBP',
@@ -13,17 +12,18 @@ $(function() {
   });
 
   // Initialize recurly form
-  var $recurlySubsctiptionForm = $('#recurly-subscription-form');
-  if ($recurlySubsctiptionForm.length > 0) {
-    var options = $recurlySubsctiptionForm.data('options');
+  var $recurlySubscriptionForm = $('#recurly-subscription-form');
+  if ($recurlySubscriptionForm.length > 0) {
+    var options = $recurlySubscriptionForm.data('options');
 
     Recurly.buildSubscriptionForm({
-      target: '#' + $recurlySubsctiptionForm.attr('id'),
+      target: '#' + $recurlySubscriptionForm.attr('id'),
       planCode: options.planCode,
       successURL: options.successURL,
-      signature: options.signature,
 
+      signature: options.signature,
       accountCode: options.account.code,
+
       account: {
         email: options.account.email
       }

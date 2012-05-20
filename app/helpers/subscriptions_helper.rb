@@ -1,6 +1,7 @@
 module SubscriptionsHelper
 
-  def new_subscription_form(signature, plan_code, account = {})
+  def new_subscription_form(plan_code, account = {})
+    signature = Recurly.js.sign(:subscription => { :plan_code => plan_code })
     options = {
       'planCode' => plan_code,
       'successURL' => subscriptions_url,
@@ -13,7 +14,8 @@ module SubscriptionsHelper
     end
   end
 
-  def billing_info_form(signature, account = {}, billing_info = {})
+  def billing_info_form(account = {}, billing_info = {})
+    signature = Recurly.js.sign :account => { :account_code => current_user.recurly_account_code }
     options = {
       'successURL' => billing_info_index_url,
       'signature' => signature,
