@@ -48,6 +48,7 @@ group :development do
   gem 'heroku_san'
   gem 'rails-footnotes'
   gem 'quiet_assets'
+  gem 'yard'
 end
 
 group :test do

@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   ## Validations
   validates :title, :presence => true
 
+  # Generates nice post id, for example `123-the-post-title`
+  # @return [String] Nice post id
   def to_param
     sanitized_title = self.title.downcase.gsub(/\?!/, '').gsub(/[^a-z0-9]+/i, '-')
     "#{self.id}-#{sanitized_title}"
