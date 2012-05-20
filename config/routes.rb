@@ -4,7 +4,7 @@ Locomotive::Application.routes.draw do
     devise_for :users
 
     resources :posts, :only => [:index, :show]
-    resources :static_pages, :only => [:show]
+    resources :static_pages, :only => [:show], :path => '/pages'
 
     root :to => 'home#index'
   end
