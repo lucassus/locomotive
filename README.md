@@ -1,10 +1,10 @@
-= Locomitive
+# Locomotive, Rails base application
 
-{<img src="https://secure.travis-ci.org/lucassus/locomotive.png" />}[http://travis-ci.org/lucassus/locomotive]
+[![Build status](https://secure.travis-ci.org/lucassus/locomotive.png)](http://travis-ci.org/lucassus/locomotive)
 
 Base Rails application.
 
-== Implemented core features
+## Implemented core features
 
 * basic users authentication with Devise
 * simple frontend made with twitter bootstrap

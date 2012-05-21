@@ -5,10 +5,3 @@
 require File.expand_path('../config/application', __FILE__)
 
 Locomotive::Application.load_tasks
-
-namespace :doc do
-  YARD::Rake::YardocTask.new(:app) do |t|
-    t.files += ['app/**/*.rb']
-    t.files += ['lib/**/*.rb']
-  end
-end

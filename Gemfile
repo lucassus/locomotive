@@ -48,8 +48,10 @@ group :development do
   gem 'heroku_san'
   gem 'rails-footnotes'
   gem 'quiet_assets'
-  gem 'yard'
   gem 'i18n_generators' # generates locale files for almost every known language
+
+  gem 'yard'
+  gem 'redcarpet' # gem for Markdown formatting (required by yardoc for generating docs from *.md files)
 end
 
 group :test do
