@@ -43,6 +43,17 @@ Optionally you can seed the development database with sample data
 
 (documentation will be generated in `./tmp/doc' folder)
 
+## How to update existing project with new changes from base-app repo
+
+You can fetch latest changes from base-app repository and merge or cherry-pick commits
+
+    git fetch base-app
+    git merge base-app/master
+
+    # fix conflicts
+    # commit
+    # test
+
 ## Implemented core features
 
 * basic users authentication with Devise
