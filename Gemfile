@@ -49,6 +49,7 @@ group :development do
   gem 'rails-footnotes'
   gem 'quiet_assets'
   gem 'yard'
+  gem 'i18n_generators' # generates locale files for almost every known language
 end
 
 group :test do
