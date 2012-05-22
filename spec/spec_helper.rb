@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 
 # Setup simplecov
+# In order to run test code coverage execute the following command `SIMPLECOV=1 rspec spec`
 if ENV['SIMPLECOV']
   require 'simplecov'
   require 'simplecov-rcov'
