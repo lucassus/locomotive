@@ -54,6 +54,11 @@ group :development do
   gem 'yard'
   # gem for Markdown formatting (required by yardoc for generating docs from *.md files)
   gem 'redcarpet'
+
+  # a command line tool to easily handle events on file system modifications
+  gem 'guard'
+  # automatically manage Spork DRb servers
+  gem 'guard-spork'
 end
 
 group :test do
