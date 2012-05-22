@@ -23,5 +23,6 @@ guard 'rspec', :version => 2, :cli => "--drb --color --tag ~slow:true" do
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
 
   # Capybara request specs
+  watch(%r{^app/admin/(.+)\.rb$})                  { |m| "spec/requests/admin" }
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end

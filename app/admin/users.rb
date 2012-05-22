@@ -36,7 +36,7 @@ ActiveAdmin.register User do
     def update
       @user = User.find(params[:id])
 
-      result = if params[:user][:password].present?
+      result = if params[:user][:password].present? || params[:user][:password_confirmation].present?
                 @user.update_attributes!(params[:user])
               else
                 @user.update_without_password(params[:user])
