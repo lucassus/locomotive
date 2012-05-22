@@ -22,9 +22,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    # Create a default user
-    User.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
-
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
   end

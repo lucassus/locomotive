@@ -60,4 +60,26 @@ feature 'Admin can manage users' do
     current_path.should == admin_user_path(user, :locale => nil)
     page.should have_content('new@email.com')
   end
+
+  scenario 'an admin can suspend an user' do
+    user = User.last
+
+    within "#user_#{user.id}" do
+      click_link 'Edit'
+    end
+
+    within 'form#edit_user' do
+      check 'Suspended'
+      click_button 'Update User'
+    end
+
+    within '.flashes' do
+      page.should have_content('User was successfully updated.')
+    end
+
+    current_path.should == admin_user_path(user, :locale => nil)
+
+    user.reload
+    user.should be_suspended
+  end
 end

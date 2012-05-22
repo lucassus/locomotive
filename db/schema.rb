@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(:version => 20120522131927) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-    t.boolean  "admin",                  :default => false
-    t.boolean  "suspended",              :default => false
+    t.boolean  "admin",                  :default => false, :null => false
+    t.boolean  "suspended",              :default => false, :null => false
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"
