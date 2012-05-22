@@ -96,6 +96,7 @@ Spork.each_run do
 
   ActiveSupport::Dependencies.clear
   ActiveRecord::Base.instantiate_observers
+  Locomotive::Application.reload_routes!
   FactoryGirl.reload
 
   # Workarounds for ActiveAdmin
