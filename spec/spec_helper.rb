@@ -97,4 +97,14 @@ Spork.each_run do
   ActiveSupport::Dependencies.clear
   ActiveRecord::Base.instantiate_observers
   FactoryGirl.reload
+
+  # Workarounds for ActiveAdmin
+  # see: https://github.com/gregbell/active_admin/issues/918#issuecomment-3741826
+
+  ActionView::Template.register_template_handler :arb, lambda { |template|
+    "self.class.send :include, Arbre::Builder; @_helpers = self; self.extend ActiveAdmin::ViewHelpers; self.extend ApplicationHelper; @__current_dom_element__ = Arbre::Context.new(assigns, self); begin; #{template.source}; end; current_dom_context"
+  }
+
+  ActiveAdmin.unload!
+  ActiveAdmin.load!
 end if Spork.using_spork?
