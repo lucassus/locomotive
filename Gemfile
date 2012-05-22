@@ -59,6 +59,8 @@ group :development do
   gem 'guard'
   # automatically manage Spork DRb servers
   gem 'guard-spork'
+  # automatically run your specs
+  gem 'guard-rspec'
 end
 
 group :test do

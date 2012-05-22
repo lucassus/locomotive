@@ -1,5 +1,9 @@
 # Notes about testing
 
+Use the guard Luke:
+
+    bundle exec guard
+
 ## Cove coverage
 
 Run test code coverage with the following command:
