@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   # @return [Array<User>]
   scope :suspended, where(:suspended => true)
 
+  has_many :accounts, :class_name => 'UserAccount'
+
   # Finds a first user on given conditions.
   # @see http://rubydoc.info/github/plataformatec/devise/master/Devise/Models/Authenticatable/ClassMethods:find_for_authentication
   def self.find_for_authentication(conditions = {})
