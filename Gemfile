@@ -63,6 +63,7 @@ group :test do
   gem 'launchy'
   gem 'capybara'
   gem 'capybara-email'
+  gem 'spork'
 
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false

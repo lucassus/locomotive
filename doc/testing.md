@@ -144,3 +144,8 @@ Sample routing spec output;
 ### Request specs
 
 TODO
+
+## Spork
+
+[Blog post about spork](http://ablogaboutcode.com/2011/05/18/spork-rspec-sham-and-caching-classes)
+
