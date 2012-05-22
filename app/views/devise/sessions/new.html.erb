@@ -1,5 +1,10 @@
 <h2><%= t('users.sign_in') %></h2>
 
+<div class="row auth-buttons">
+  <%= link_to t('action.login_via_facebook'), '/auth/facebook', class: 'btn info' %>
+  <%= link_to t('action.login_via_twitter'), '/auth/twitter', class: 'btn info' %>
+</div>
+
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
   <div class="inputs">
     <%= f.input :email, :required => false, :autofocus => true %>

@@ -8,6 +8,10 @@ defaults: &defaults
   exception_notification:
     sender_address: 'error@locomotive.com'
     exception_recipients: 'lukasz@llp.pl'
+  twitter_app_id: '3i3gwbqOoETDV87aVPec1g'
+  twitter_app_secret: 'eOsgv0pf12lKBK68wLqcwzcetPLlcFlfJLQqeMCBgc0'
+  facebook_app_id: '226905227381277'
+  facebook_app_secret: 'f84949b9762bd5e952aff53b35d440ea'
 
 development:
   <<: *defaults

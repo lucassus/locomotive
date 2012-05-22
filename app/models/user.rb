@@ -23,7 +23,29 @@ class User < ActiveRecord::Base
   # Finds a first user on given conditions.
   # @see http://rubydoc.info/github/plataformatec/devise/master/Devise/Models/Authenticatable/ClassMethods:find_for_authentication
   def self.find_for_authentication(conditions = {})
-   conditions[:suspended] = false
-   super
- end
+    conditions[:suspended] = false
+    super
+  end
+
+  # Check if the user is connected to facebook account
+  def connected_to_facebook?
+    connected_to?(UserAccount::FACEBOOK)
+  end
+
+  # Check if the user is connected to twitter account
+  def connected_to_twitter?
+    connected_to?(UserAccount::TWITTER)
+  end
+
+  # Check if the user is connected to the given account
+  def connected_to?(provider)
+    accounts.exists?(:provider => provider.to_s)
+  end
+
+  def connect_to(provider, options)
+    raise if connected_to?(provider)
+
+    attributes = options.merge(:provider =>  provider.to_s)
+    accounts.create!(attributes)
+  end
 end

@@ -5,7 +5,7 @@ describe 'Users routing' do
 
   describe :new_user_registration_path  do
     specify { path.should == '/users/sign_up' }
-    specify { get(path).should route_to('devise/registrations#new') }
+    specify { get(path).should route_to('registrations#new') }
   end
 
   describe :new_user_session_path do
@@ -21,7 +21,7 @@ describe 'Users routing' do
 
   describe :edit_user_registration_path  do
     specify { path.should == '/users/edit' }
-    specify { get(path).should route_to('devise/registrations#edit') }
+    specify { get(path).should route_to('registrations#edit') }
   end
 
 end

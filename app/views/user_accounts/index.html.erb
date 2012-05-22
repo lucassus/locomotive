@@ -1,0 +1,29 @@
+<h2>My connected accounts</h2>
+
+<% unless @accounts.empty? %>
+<table id="accounts">
+  <thead>
+  <tr>
+    <th>Provider</th>
+    <th>UID</th>
+    <th>Token</th>
+    <th>Created at</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @accounts.each do |account| %>
+  <tr>
+    <td><%= account.provider %></td>
+    <td><%= account.uid %></td>
+    <td><%= account.token %></td>
+    <td><%= account.created_at %></td>
+    <td><%= link_to 'Delete', user_account_path(account), :method => :delete, :confirm => 'Are you sure?' %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<%= link_to 'Connect with Twitter', '/auth/twitter' %> |
+<%= link_to 'Connect with Facebook', '/auth/facebook' %>

@@ -9,6 +9,7 @@ en:
     home: 'Home'
     posts: 'Blog'
   users:
+    accounts: 'Accounts'
     sign_in: 'Sign in'
     sign_up: 'Sign up'
     sign_out: 'Sign out'

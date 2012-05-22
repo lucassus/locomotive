@@ -16,6 +16,13 @@ describe UserAccount do
     it { should have_db_index([:user_id, :provider]).unique(true) }
   end
 
+  describe 'mass assignment' do
+    it { should allow_mass_assignment_of(:provider) }
+    it { should allow_mass_assignment_of(:uid) }
+    it { should allow_mass_assignment_of(:token) }
+    it { should allow_mass_assignment_of(:auth_response) }
+  end
+
   describe 'associations' do
     it { should belong_to(:user) }
   end
