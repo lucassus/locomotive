@@ -2,12 +2,19 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
+# a very fast & simple Ruby web server
 gem 'thin'
+# authentication solution for Rails with Warden
 gem 'devise'
+# translations for the devise gem
 gem 'devise-i18n'
+# simple DSL for rendering forms
 gem 'simple_form'
+# settings solution that uses an ERB enabled YAML file and a singleton design pattern
 gem 'settingslogic'
+# markdown processor in Ruby
 gem 'bluecloth'
+# sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
 gem 'exception_notification'
 
 # ActiveAdmin dependencies
@@ -16,6 +23,7 @@ gem 'formtastic', '2.0.0'
 gem 'meta_search'
 
 group :production do
+  # PostgreSQL client library
   gem 'pg'
 end
 
@@ -45,12 +53,16 @@ group :development, :test do
 end
 
 group :development do
+  # helpful stuffs for Heroku
   gem 'heroku_san'
+  # gives information about your application in the footer
   gem 'rails-footnotes'
+  # mutes assets pipeline log messages
   gem 'quiet_assets'
   # generates locale files for almost every known language
   gem 'i18n_generators'
 
+  # Ruby Documentation tool
   gem 'yard'
   # gem for Markdown formatting (required by yardoc for generating docs from *.md files)
   gem 'redcarpet'
