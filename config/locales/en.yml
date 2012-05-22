@@ -5,6 +5,9 @@ en:
   are_you_sure: 'Are you sure?'
   actions:
     back: 'Back'
+  links:
+    home: 'Home'
+    posts: 'Blog'
   users:
     sign_in: 'Sign in'
     sign_up: 'Sign up'

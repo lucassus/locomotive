@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  add_breadcrumb I18n.t('links.home'), 'root_path'
+
   # Renders the Home Page
   def index
   end

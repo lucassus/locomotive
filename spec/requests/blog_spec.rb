@@ -5,7 +5,7 @@ feature 'Reading blog posts' do
 
   background do
     visit root_path
-    click_link 'Posts'
+    click_link 'Blog'
   end
 
   scenario 'an user can see the list of recent posts' do
