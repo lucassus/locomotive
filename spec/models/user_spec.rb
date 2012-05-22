@@ -6,7 +6,8 @@ describe User do
   describe 'fields' do
     it { should have_db_column(:email).of_type(:string) }
     it { should have_db_column(:sign_in_count).of_type(:integer) }
-    it { should have_db_column(:admin).of_type(:boolean) }
+    it { should have_db_column(:admin).of_type(:boolean).with_options(:default => false) }
+    it { should have_db_column(:suspended).of_type(:boolean).with_options(:default => false) }
     it { should have_db_column(:last_sign_in_at).of_type(:datetime) }
     it { should have_db_column(:created_at).of_type(:datetime) }
     it { should have_db_column(:updated_at).of_type(:datetime) }
@@ -30,16 +31,26 @@ describe User do
   end
 
   describe 'scopes' do
+    before { 3.times { create(:user) } }
+
     describe '#admin' do
       let!(:first_admin) { create(:admin_user) }
       let!(:second_admin) { create(:admin_user) }
-      before { 3.times { create(:user) } }
 
       subject { User.admin }
 
       it { should have(2).items }
       it { should include(first_admin) }
       it { should include(second_admin) }
+    end
+
+    describe '#suspended' do
+      let!(:suspended_user) { create(:user, :suspended => true) }
+
+      subject { User.suspended }
+
+      it { should have(1).item }
+      it { should include(suspended_user) }
     end
   end
 end

@@ -12,4 +12,15 @@ class User < ActiveRecord::Base
   # Returns a collection of admin users
   # @return [Array<User>]
   scope :admin, where(:admin => true)
+
+  # Returns a collection of suspended users
+  # @return [Array<User>]
+  scope :suspended, where(:suspended => true)
+
+  # Finds a first user on given conditions.
+  # @see http://rubydoc.info/github/plataformatec/devise/master/Devise/Models/Authenticatable/ClassMethods:find_for_authentication
+  def self.find_for_authentication(conditions = {})
+   conditions[:suspended] = false
+   super
+ end
 end

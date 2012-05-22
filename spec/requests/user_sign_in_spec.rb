@@ -18,7 +18,7 @@ feature 'Sign in' do
     end
   end
 
-  describe 'when user provides valid credentials' do
+  describe 'when an user provides valid credentials' do
     background do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => 'password'
@@ -30,6 +30,21 @@ feature 'Sign in' do
       page.should have_content('Signed in successfully.')
       page.should have_content(user.email)
       page.should have_link('Sign out')
+    end
+  end
+
+  describe 'when an user is suspended' do
+    before { user.update_attribute(:suspended, true) }
+
+    background do
+      fill_in 'Email', :with => user.email
+      fill_in 'Password', :with => 'password'
+      click_button 'Sign in'
+    end
+
+    scenario 'he should not be logged in' do
+      current_path.should == new_user_session_path
+      page.should have_content('Invalid email or password.')
     end
   end
 end
