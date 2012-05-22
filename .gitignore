@@ -26,3 +26,6 @@
 
 # Ignore custom rails footnotes
 /.rails_footnotes
+
+# Ignore .yardoc/
+/.yardoc
