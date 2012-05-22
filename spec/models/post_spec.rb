@@ -11,6 +11,12 @@ describe Post do
     it { should have_db_column(:updated_at).of_type(:datetime) }
   end
 
+  describe 'mass assignment' do
+    it { should allow_mass_assignment_of(:title) }
+    it { should allow_mass_assignment_of(:body) }
+    it { should allow_mass_assignment_of(:published) }
+  end
+
   describe 'validations' do
     it { should validate_presence_of(:title) }
   end

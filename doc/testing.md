@@ -36,6 +36,18 @@ Sample code:
 
     end
 
+#### Testing a mass assignments
+
+    describe Post do
+
+      describe 'mass assignment' do
+        it { should allow_mass_assignment_of(:title) }
+        it { should allow_mass_assignment_of(:body) }
+        it { should allow_mass_assignment_of(:published) }
+      end
+
+    end
+
 ### Testing controllers
 
 Turn off view rendering in a controller example group:
