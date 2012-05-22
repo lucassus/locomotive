@@ -64,6 +64,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-email'
   gem 'spork'
+  gem 'database_cleaner'
 
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
