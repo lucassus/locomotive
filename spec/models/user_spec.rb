@@ -18,8 +18,8 @@ describe User do
   end
 
   describe 'factories' do
-    specify { build(:user).should be_valid }
-    specify { build(:admin_user).should be_valid }
+    it { should have_valid_factory }
+    it { should have_valid_factory(:admin_user) }
   end
 
   describe 'scopes' do
