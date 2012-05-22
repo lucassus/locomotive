@@ -10,4 +10,4 @@ before_script:
   - "RAILS_ENV=test rake db:migrate"
 
 script:
-  - "rspec spec"
+  - "SIMPLECOV=1 rspec spec"
