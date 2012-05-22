@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe 'Admin static page routing' do
   let(:path) { public_send(subject) }

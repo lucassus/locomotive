@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe 'Users routing' do
   let(:path) { public_send(subject) }
