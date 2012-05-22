@@ -1,5 +1,7 @@
 --readme README.md
 --title 'Locomotive, Rails base application'
+--private
+--protected
 --charset utf-8
 --output-dir tmp/doc
 'app/**/*.rb' 'lib/**/*.rb' - 'doc/*.md'
