@@ -36,4 +36,15 @@ Locomotive::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Configure VCR to log all HTTP requests
+  # See also /config/initializers/vcr_logging.rb
+  if ENV['VCR_LOGGING'].present?
+    require 'vcr'
+
+    config.middleware.use VCR::Middleware::Rack do |cassette|
+      cassette.name    'vcr.log'
+      cassette.options :record => :all
+    end
+  end
 end
