@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :suspended
+                  :suspended, :avatar
+
+  mount_uploader :avatar, AvatarUploader
 
   # Returns a collection of admin users
   # @return [Array<User>]

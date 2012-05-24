@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522151825) do
+ActiveRecord::Schema.define(:version => 20120524102521) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20120522151825) do
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false, :null => false
     t.boolean  "suspended",              :default => false, :null => false
+    t.string   "avatar"
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"

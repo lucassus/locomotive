@@ -28,6 +28,10 @@ ActiveAdmin.register User do
       f.input :suspended
     end
 
+    f.inputs do
+      f.input :avatar
+    end
+
     f.buttons
   end
 

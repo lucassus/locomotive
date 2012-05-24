@@ -28,6 +28,10 @@ gem 'activeadmin'
 gem 'formtastic', '2.0.0'
 gem 'meta_search'
 
+# Carrierwave file uploads
+gem 'carrierwave'
+gem 'fog'
+
 group :production do
   # PostgreSQL client library
   gem 'pg'
