@@ -35,6 +35,27 @@ ActiveAdmin.register User do
     f.buttons
   end
 
+  show do
+    h3 "User #{user.email}"
+
+    attributes_table do
+      row :email
+      row :suspended
+    end
+
+    div do
+      image_tag user.avatar_url(:thumb)
+    end
+
+    div do
+      image_tag user.avatar_url
+    end
+
+    div do
+      image_tag user.avatar_url(:large)
+    end
+  end
+
   controller do
 
     def update

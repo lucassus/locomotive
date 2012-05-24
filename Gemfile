@@ -30,7 +30,10 @@ gem 'meta_search'
 
 # Carrierwave file uploads
 gem 'carrierwave'
+# Carrierwave uses fog to support Amazon S3.
 gem 'fog'
+# image processing library
+gem 'rmagick'
 
 group :production do
   # PostgreSQL client library
