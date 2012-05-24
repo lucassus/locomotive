@@ -39,7 +39,9 @@ Locomotive::Application.configure do
 
   # Configure VCR to log all HTTP requests
   # See also /config/initializers/vcr_logging.rb
-  if ENV['VCR_LOGGING'].present?
+  if Rails.env.development? and ENV['VCR_LOGGING'].present?
+    puts "#{'-' * 16} Configuring VCR for logging all HTTP requests"
+
     require 'vcr'
 
     config.middleware.use VCR::Middleware::Rack do |cassette|
