@@ -7,7 +7,7 @@ defaults: &defaults
     password: 'password'
   exception_notification:
     sender_address: 'error@locomotive.com'
-    exception_recipients: 'lukasz@llp.pl'
+    exception_recipients: 'lucassus@gmail.com'
   twitter_app_id: '3i3gwbqOoETDV87aVPec1g'
   twitter_app_secret: 'eOsgv0pf12lKBK68wLqcwzcetPLlcFlfJLQqeMCBgc0'
   facebook_app_id: '226905227381277'
