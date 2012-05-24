@@ -9,9 +9,10 @@
 /.bin
 /vendor/bundle
 
-# Ignore the default SQLite database.
+# Ignore databases and config files.
 /db/*.sqlite3
 /config/database.yml
+/config/application.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
