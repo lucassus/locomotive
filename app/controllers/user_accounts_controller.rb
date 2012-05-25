@@ -8,8 +8,8 @@ class UserAccountsController < ApplicationController
   def create
     logger.info short_auth_hash.to_yaml
 
-    provider = auth_hash['provider']
-    uid = auth_hash['uid']
+    provider = auth_hash[:provider]
+    uid = auth_hash[:uid]
 
     account = UserAccount.find_by_provider_and_uid(provider, uid)
     if account.present?
@@ -19,8 +19,8 @@ class UserAccountsController < ApplicationController
     else
       if current_user.present?
         # Connect logged user to the given account
-        token = auth_hash['credentials']['token']
-        current_user.connect_to(provider, uid: uid, token: token, auth_response: short_auth_hash)
+        token = auth_hash[:credentials][:token]
+        current_user.connect_to(provider, :uid => uid, :token => token, :auth_response => short_auth_hash)
 
         flash[:success] = 'Authentication successful.'
         redirect_to user_accounts_path
@@ -43,11 +43,11 @@ class UserAccountsController < ApplicationController
   private
 
   def auth_hash
-    request.env['omniauth.auth']
+    ActiveSupport::HashWithIndifferentAccess.new(request.env['omniauth.auth'])
   end
 
   def short_auth_hash
-    auth_hash.except('extra')
+    auth_hash.except(:extra)
   end
 
 end
