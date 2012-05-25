@@ -26,7 +26,7 @@ feature 'Sign up' do
     end
 
     scenario 'he should be logged in' do
-      page.should have_content('Welcome! You have signed up successfully.')
+      page.should display_flash_message('Welcome! You have signed up successfully.')
       page.should have_content('new@user.com')
       current_path.should == root_path
 

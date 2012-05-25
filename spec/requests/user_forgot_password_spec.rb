@@ -36,7 +36,7 @@ feature 'Reset password' do
     end
 
     scenario 'user should see the flash message' do
-      page.should have_content('You will receive an email with instructions about how to reset your password in a few minutes.')
+      page.should display_flash_message('You will receive an email with instructions about how to reset your password in a few minutes.')
     end
 
     describe 'when the user follows link in the email' do
@@ -61,7 +61,7 @@ feature 'Reset password' do
         end
 
         scenario 'user should see the flash message' do
-          page.should have_content('Your password was changed successfully. You are now signed in.')
+          page.should display_flash_message('Your password was changed successfully. You are now signed in.')
         end
 
         scenario 'user should be able to login with his new password' do
@@ -71,7 +71,7 @@ feature 'Reset password' do
           fill_in 'Password', :with => '123123123'
           click_button 'Sign in'
 
-          page.should have_content('Signed in successfully.')
+          page.should display_flash_message('Signed in successfully.')
         end
       end
     end

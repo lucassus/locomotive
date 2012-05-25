@@ -29,13 +29,13 @@ feature 'User profile' do
     end
 
     scenario 'an user can see flash message' do
-      page.should have_content('You updated your account successfully.')
+      page.should display_flash_message('You updated your account successfully.')
     end
 
     scenario 'an user should be able to login with new password' do
       logout
       login_with(user, :password => 'new password')
-      page.should have_content('Signed in successfully.')
+      page.should display_flash_message('Signed in successfully.')
     end
   end
 end

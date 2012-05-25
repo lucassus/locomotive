@@ -28,12 +28,12 @@ feature 'Admin panel' do
 
     scenario 'should not be able to access the admin panel' do
       current_path.should == new_user_session_path
-      page.should have_content('You need to sign in or sign up before continuing.')
+      page.should display_flash_message('You need to sign in or sign up before continuing.')
     end
 
     scenario 'should see the login form' do
       current_path.should == new_user_session_path
-      page.should have_content('You need to sign in or sign up before continuing.')
+      page.should display_flash_message('You need to sign in or sign up before continuing.')
 
       fill_in 'Email', :with => 'admin@email.com'
       fill_in 'Password', :with => 'password'

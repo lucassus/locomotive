@@ -27,7 +27,7 @@ feature 'Sign in' do
 
     scenario 'he should be logged in' do
       current_path.should == root_path
-      page.should have_content('Signed in successfully.')
+      page.should display_flash_message('Signed in successfully.')
       page.should have_content(user.email)
       page.should have_link('Sign out')
     end
@@ -44,7 +44,7 @@ feature 'Sign in' do
 
     scenario 'he should not be logged in' do
       current_path.should == new_user_session_path
-      page.should have_content('Invalid email or password.')
+      page.should display_flash_message('Invalid email or password.')
     end
   end
 end
