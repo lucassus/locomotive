@@ -79,6 +79,9 @@ group :development do
   gem 'guard-spork'
   # automatically run your specs
   gem 'guard-rspec'
+
+  # a code metric tool to check the quality of rails codes
+  gem 'rails_best_practices'
 end
 
 group :test do
