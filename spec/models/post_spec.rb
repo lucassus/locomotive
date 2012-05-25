@@ -21,12 +21,6 @@ describe Post do
     it { should validate_presence_of(:title) }
   end
 
-  describe 'factories' do
-    it { should have_valid_factory }
-    it { should have_valid_factory(:published_post) }
-    it { should have_valid_factory(:unpublished_post) }
-  end
-
   describe 'scopes' do
     let!(:first_published_post) { create(:published_post, :created_at => 1.day.ago) }
     let!(:second_published_post) { create(:published_post) }
