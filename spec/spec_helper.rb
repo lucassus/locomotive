@@ -61,6 +61,7 @@ Spork.prefork do
   require 'rspec/autorun'
   require 'database_cleaner'
   require 'capybara/email/rspec'
+  require 'vcr'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -68,7 +69,15 @@ Spork.prefork do
 
   I18n.default_locale = I18n.locale = :en
 
+  VCR.configure do |c|
+    c.cassette_library_dir = File.expand_path('spec/vcr_cassettes', Rails.root)
+    c.hook_into :webmock
+  end
+
+  OmniAuth.config.test_mode = true
+
   RSpec.configure do |config|
+    config.extend VCR::RSpec::Macros
     config.include FactoryGirl::Syntax::Methods
     config.include Macros::UserLogin, :type => :request
     config.include Macros::Mailer, :type => :request

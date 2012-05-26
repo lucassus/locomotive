@@ -16,10 +16,6 @@ describe StaticPage do
     it { should allow_mass_assignment_of(:content) }
   end
 
-  describe 'factories' do
-    it { should have_valid_factory }
-  end
-
   describe 'mass assignment' do
     it { should allow_mass_assignment_of(:content) }
   end

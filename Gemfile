@@ -58,9 +58,9 @@ group :development, :test do
   gem 'faker'
 
   # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
-  gem 'vcr'
+  gem 'vcr', :require => false
   # Library for stubbing and setting expectations on HTTP requests in Ruby. (required by vcr)
-  gem 'webmock'
+  gem 'webmock', :require => false
 end
 
 group :development do
@@ -84,6 +84,9 @@ group :development do
   gem 'guard-spork'
   # automatically run your specs
   gem 'guard-rspec'
+
+  # a code metric tool to check the quality of rails codes
+  gem 'rails_best_practices'
 end
 
 group :test do

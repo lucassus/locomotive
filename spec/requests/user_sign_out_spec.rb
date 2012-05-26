@@ -10,7 +10,7 @@ feature 'Sign out' do
   end
 
   scenario 'successfully sign out' do
-    page.should have_content('Signed out successfully.')
+    page.should display_flash_message('Signed out successfully.')
     current_path.should == root_path
   end
 end

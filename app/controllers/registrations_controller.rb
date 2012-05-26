@@ -13,13 +13,12 @@ class RegistrationsController < Devise::RegistrationsController
     super
 
     if session[:omniauth]
-      omniauth = session[:omniauth]
+      omniauth = ActiveSupport::HashWithIndifferentAccess.new(session[:omniauth])
 
-      @user.email = omniauth['info']['nickname'] if @user.email.blank?
       @user.accounts.build do |a|
-        a.provider = omniauth['provider']
-        a.uid = omniauth['uid']
-        a.token = omniauth['credentials']['token']
+        a.provider = omniauth[:provider]
+        a.uid = omniauth[:uid]
+        a.token = omniauth[:credentials][:token]
       end
     end
   end

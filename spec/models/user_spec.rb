@@ -30,11 +30,6 @@ describe User do
     it { should validate_uniqueness_of :email }
   end
 
-  describe 'factories' do
-    it { should have_valid_factory }
-    it { should have_valid_factory(:admin_user) }
-  end
-
   describe 'scopes' do
     before { 3.times { create(:user) } }
 

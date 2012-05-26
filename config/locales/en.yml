@@ -5,6 +5,7 @@ en:
   are_you_sure: 'Are you sure?'
   actions:
     back: 'Back'
+    login_via_facebook: 'Login via Facebook'
   links:
     home: 'Home'
     posts: 'Blog'

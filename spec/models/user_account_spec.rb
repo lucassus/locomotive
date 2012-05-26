@@ -27,10 +27,4 @@ describe UserAccount do
     it { should belong_to(:user) }
   end
 
-  describe 'factories' do
-    it { should have_valid_factory }
-    it { should have_valid_factory(:facebook_account) }
-    it { should have_valid_factory(:twitter_account) }
-  end
-
 end
