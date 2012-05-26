@@ -7,8 +7,7 @@ describe Post do
     it { should have_db_column(:body).of_type(:text) }
     it { should have_db_column(:published).of_type(:boolean).with_options(:null => false, :default => false) }
 
-    it { should have_db_column(:created_at).of_type(:datetime) }
-    it { should have_db_column(:updated_at).of_type(:datetime) }
+    it_behaves_like "a model that has timestamp fields"
   end
 
   describe 'mass assignment' do

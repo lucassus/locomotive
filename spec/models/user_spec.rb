@@ -9,8 +9,8 @@ describe User do
     it { should have_db_column(:admin).of_type(:boolean).with_options(:default => false) }
     it { should have_db_column(:suspended).of_type(:boolean).with_options(:default => false) }
     it { should have_db_column(:last_sign_in_at).of_type(:datetime) }
-    it { should have_db_column(:created_at).of_type(:datetime) }
-    it { should have_db_column(:updated_at).of_type(:datetime) }
+
+    it_behaves_like "a model that has timestamp fields"
   end
 
   describe 'mass assignment' do

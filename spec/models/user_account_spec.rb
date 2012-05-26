@@ -9,8 +9,7 @@ describe UserAccount do
     it { should have_db_column(:token).of_type(:string) }
     it { should have_db_column(:auth_response).of_type(:text) }
 
-    it { should have_db_column(:created_at).of_type(:datetime) }
-    it { should have_db_column(:updated_at).of_type(:datetime) }
+    it_behaves_like "a model that has timestamp fields"
 
     it { should have_db_index(:user_id) }
     it { should have_db_index([:user_id, :provider]).unique(true) }
