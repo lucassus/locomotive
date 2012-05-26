@@ -7,14 +7,11 @@ describe Post do
     it { should have_db_column(:body).of_type(:text) }
     it { should have_db_column(:published).of_type(:boolean).with_options(:null => false, :default => false) }
 
-    it_behaves_like "a model that has timestamp fields"
+    it_behaves_like 'a model that has timestamp fields'
   end
 
-  describe 'mass assignment' do
-    it { should allow_mass_assignment_of(:title) }
-    it { should allow_mass_assignment_of(:body) }
-    it { should allow_mass_assignment_of(:published) }
-  end
+  it_behaves_like 'a model that allows mass assignment for',
+                  :title, :body, :published
 
   describe 'validations' do
     it { should validate_presence_of(:title) }

@@ -9,18 +9,14 @@ describe UserAccount do
     it { should have_db_column(:token).of_type(:string) }
     it { should have_db_column(:auth_response).of_type(:text) }
 
-    it_behaves_like "a model that has timestamp fields"
+    it_behaves_like 'a model that has timestamp fields'
 
     it { should have_db_index(:user_id) }
     it { should have_db_index([:user_id, :provider]).unique(true) }
   end
 
-  describe 'mass assignment' do
-    it { should allow_mass_assignment_of(:provider) }
-    it { should allow_mass_assignment_of(:uid) }
-    it { should allow_mass_assignment_of(:token) }
-    it { should allow_mass_assignment_of(:auth_response) }
-  end
+  it_behaves_like 'a model that allows mass assignment for',
+                  :provider, :uid, :token, :auth_response
 
   describe 'associations' do
     it { should belong_to(:user) }
