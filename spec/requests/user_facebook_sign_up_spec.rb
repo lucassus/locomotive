@@ -45,7 +45,7 @@ feature 'Sign up via Facebook' do
     click_link 'Sign in'
     click_link 'Login via Facebook'
 
-    page.should have_content('Signed in successfully.')
+    page.should display_flash_message('Signed in successfully.')
     page.should have_content('facebook@user.com')
   end
 
