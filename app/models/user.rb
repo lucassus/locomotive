@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :suspended
 
+  has_many :accounts, :class_name => 'UserAccount', :dependent => :destroy
   include User::Accounts
 
   # Returns a collection of admin users

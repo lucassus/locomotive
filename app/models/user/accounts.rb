@@ -1,10 +1,5 @@
 class User
   module Accounts
-    extend ActiveSupport::Concern
-
-    included do
-      has_many :accounts, :class_name => 'UserAccount'
-    end
 
     # Check if the user is connected to facebook account
     def connected_to_facebook?

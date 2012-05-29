@@ -20,6 +20,19 @@ describe User do
 
   describe 'associations' do
     it { should have_many(:accounts) }
+
+    describe 'on delete' do
+      before do
+        create(:user_account, :facebook, :user => subject)
+        create(:user_account, :twitter, :user => subject)
+      end
+
+      it 'should delete associated images' do
+        expect do
+          subject.destroy
+        end.to change(UserAccount, :count).by(-2)
+      end
+    end
   end
 
   describe 'validations' do
