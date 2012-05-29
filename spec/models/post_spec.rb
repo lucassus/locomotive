@@ -2,12 +2,13 @@ require 'spec_helper'
 
 describe Post do
 
-  describe 'fields' do
-    it { should have_db_column(:title).of_type(:string).with_options(:null => false) }
-    it { should have_db_column(:body).of_type(:text) }
-    it { should have_db_column(:published).of_type(:boolean).with_options(:null => false, :default => false) }
+  describe 'database columns' do
+    it_behaves_like 'a model with the following database columns',
+                    [:title, :string, :null => false],
+                    [:body, :text],
+                    [:published, :boolean, :null => false, :default => false]
 
-    it_behaves_like 'a model that has timestamp fields'
+    it_behaves_like 'a model with timestampable columns'
   end
 
   it_behaves_like 'a model that allows mass assignment for',

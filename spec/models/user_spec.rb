@@ -4,13 +4,14 @@ describe User do
   subject { create(:user) }
 
   describe 'fields' do
-    it { should have_db_column(:email).of_type(:string) }
-    it { should have_db_column(:sign_in_count).of_type(:integer) }
-    it { should have_db_column(:admin).of_type(:boolean).with_options(:default => false) }
-    it { should have_db_column(:suspended).of_type(:boolean).with_options(:default => false) }
-    it { should have_db_column(:last_sign_in_at).of_type(:datetime) }
+    it_behaves_like 'a model with the following database columns',
+                    [:email, :string],
+                    [:sign_in_count, :integer],
+                    [:admin, :boolean, :default => false, :null => false],
+                    [:suspended, :boolean, :default => false, :null => false],
+                    [:last_sign_in_at, :datetime]
 
-    it_behaves_like 'a model that has timestamp fields'
+    it_behaves_like 'a model with timestampable columns'
   end
 
   it_behaves_like 'a model that allows mass assignment for',

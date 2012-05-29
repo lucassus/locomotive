@@ -3,13 +3,14 @@ require 'spec_helper'
 describe UserAccount do
 
   describe 'fields' do
-    it { should have_db_column(:user_id).of_type(:integer).with_options(:null => false) }
-    it { should have_db_column(:provider).of_type(:string).with_options(:limit => 16, :null => false) }
-    it { should have_db_column(:uid).of_type(:string).with_options(:null => false) }
-    it { should have_db_column(:token).of_type(:string) }
-    it { should have_db_column(:auth_response).of_type(:text) }
+    it_behaves_like 'a model with the following database columns',
+                    [:user_id, :integer, :null => false],
+                    [:provider, :string, :limit => 16, :null => false],
+                    [:uid, :string, :null => false],
+                    [:token, :string],
+                    [:auth_response, :text]
 
-    it_behaves_like 'a model that has timestamp fields'
+    it_behaves_like 'a model with timestampable columns'
 
     it { should have_db_index(:user_id) }
     it { should have_db_index([:user_id, :provider]).unique(true) }
