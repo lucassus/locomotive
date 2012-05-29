@@ -51,35 +51,38 @@ describe User do
     end
   end
 
-  # TODO try dry it with shared examples
   describe 'accounts' do
+
+    shared_examples_for 'an user connected to' do |account_type|
+      it { should public_send("be_connected_to_#{account_type}") }
+      its(:"#{account_type}_account") { should_not be_nil }
+      its(:"#{account_type}_account") { should == account }
+    end
+
+    shared_examples_for 'an user not connected to' do |account_type|
+      it { should_not public_send("be_connected_to_#{account_type}") }
+      its(:"#{account_type}_account") { should be_nil }
+    end
+
     context 'facebook' do
       context 'when an user has an account' do
         let!(:account) { create(:user_account, :facebook, :user => subject) }
-
-        it { should be_connected_to_facebook }
-        its(:facebook_account) { should_not be_nil }
-        its(:facebook_account) { should == account }
+        it_behaves_like 'an user connected to', :facebook
       end
 
       context 'otherwise' do
-        it { should_not be_connected_to_facebook }
-        its(:facebook_account) { should be_nil }
+        it_behaves_like 'an user not connected to', :facebook
       end
     end
 
     context 'twitter' do
       context 'when an user an account' do
         let!(:account) { create(:user_account, :twitter, :user => subject) }
-
-        it { should be_connected_to_twitter }
-        its(:twitter_account) { should_not be_nil }
-        its(:twitter_account) { should == account }
+        it_behaves_like 'an user connected to', :twitter
       end
 
       context 'otherwise' do
-        it { should_not be_connected_to_twitter }
-        its(:twitter_account) { should be_nil }
+        it_behaves_like 'an user not connected to', :twitter
       end
     end
   end
