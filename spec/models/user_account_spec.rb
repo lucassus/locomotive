@@ -14,6 +14,7 @@ describe UserAccount do
 
     it { should have_db_index(:user_id) }
     it { should have_db_index([:user_id, :provider]).unique(true) }
+    it { should have_foreign_key_for(:user, :dependent => :delete) }
   end
 
   it_behaves_like 'a model that allows mass assignment for',
