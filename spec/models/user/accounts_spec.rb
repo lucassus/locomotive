@@ -1,16 +1,21 @@
 require 'spec_helper'
 
 describe User::Accounts do
-  subject { create(:user) }
+  let(:user) { create(:user) }
+  subject { user }
 
   shared_examples_for 'an user connected to' do |account_type|
+    specify { subject.connected_to?(account_type).should be_true }
     it { should public_send("be_connected_to_#{account_type}") }
+
     its(:"#{account_type}_account") { should_not be_nil }
     its(:"#{account_type}_account") { should == account }
   end
 
   shared_examples_for 'an user not connected to' do |account_type|
+    specify { subject.connected_to?(account_type).should be_false }
     it { should_not public_send("be_connected_to_#{account_type}") }
+
     its(:"#{account_type}_account") { should be_nil }
   end
 
@@ -20,7 +25,7 @@ describe User::Accounts do
       it_behaves_like 'an user connected to', :facebook
     end
 
-    context 'otherwise' do
+    context 'when an user does not have an account' do
       it_behaves_like 'an user not connected to', :facebook
     end
   end
@@ -31,8 +36,30 @@ describe User::Accounts do
       it_behaves_like 'an user connected to', :twitter
     end
 
-    context 'otherwise' do
+    context 'when an user does not have an account' do
       it_behaves_like 'an user not connected to', :twitter
+    end
+  end
+
+  describe '#connect_to!' do
+    context 'when an user is not connected' do
+      describe 'connected account' do
+        subject { user.connect_to!('google', { :uid => 'google-id' }) }
+
+        it { should_not be_nil }
+        its(:provider) { should == 'google' }
+        its(:uid) { should == 'google-id' }
+      end
+    end
+
+    context 'when an user is already connected' do
+      before { create(:user_account, :twitter, :user => subject) }
+
+      it 'should raise an exception' do
+        expect do
+          subject.connect_to!('facebook', {})
+        end.to raise_error
+      end
     end
   end
 end

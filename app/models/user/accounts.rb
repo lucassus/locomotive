@@ -29,7 +29,7 @@ class User
       accounts.exists?(:provider => provider.to_s)
     end
 
-    def connect_to(provider, options)
+    def connect_to!(provider, options)
       raise if connected_to?(provider)
 
       attributes = options.merge(:provider =>  provider.to_s)

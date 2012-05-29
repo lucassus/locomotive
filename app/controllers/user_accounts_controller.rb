@@ -20,7 +20,7 @@ class UserAccountsController < ApplicationController
       if current_user.present?
         # Connect logged user to the given account
         token = auth_hash[:credentials][:token]
-        current_user.connect_to(provider, :uid => uid, :token => token, :auth_response => short_auth_hash)
+        current_user.connect_to!(provider, :uid => uid, :token => token, :auth_response => short_auth_hash)
 
         flash[:success] = 'Authentication successful.'
         redirect_to user_accounts_path
