@@ -28,7 +28,7 @@ feature 'Facebook connect' do
 
       account = user.accounts.last
       account.should_not be_nil
-      account.provider.should == UserAccount::FACEBOOK
+      account.provider.should == 'facebook'
 
       click_link 'Sign out'
       click_link 'Sign in'

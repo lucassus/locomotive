@@ -1,30 +1,14 @@
 class User
   module Accounts
 
-    # Check if the user is connected to facebook account
-    def connected_to_facebook?
-      connected_to?(UserAccount::FACEBOOK)
-    end
+    [:facebook, :twitter, :google].each do |provider|
+      define_method :"connected_to_#{provider}?" do
+        connected_to?(provider)
+      end
 
-    def facebook_account
-      accounts.find_by_provider(UserAccount::FACEBOOK)
-    end
-
-    # Check if the user is connected to twitter account
-    def connected_to_twitter?
-      connected_to?(UserAccount::TWITTER)
-    end
-
-    def twitter_account
-      accounts.find_by_provider(UserAccount::TWITTER)
-    end
-
-    def connected_to_google?
-      connected_to?(UserAccount::GOOGLE)
-    end
-
-    def google_account
-      accounts.find_by_provider(UserAccount::GOOGLE)
+      define_method :"#{provider}_account" do
+        accounts.find_by_provider(provider)
+      end
     end
 
     # Check if the user is connected to the given account
@@ -32,6 +16,7 @@ class User
       accounts.exists?(:provider => provider.to_s)
     end
 
+    # Connect the user with given account
     def connect_to!(provider, options)
       raise if connected_to?(provider)
 

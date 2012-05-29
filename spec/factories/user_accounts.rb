@@ -6,15 +6,15 @@ FactoryGirl.define do
     uid 'facebook-user-id'
 
     trait :facebook do
-      provider UserAccount::FACEBOOK
+      provider 'facebook'
     end
 
     trait :twitter do
-      provider UserAccount::TWITTER
+      provider 'twitter'
     end
 
     trait :google do
-      provider UserAccount::GOOGLE
+      provider 'google'
     end
   end
 end
