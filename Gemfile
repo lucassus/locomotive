@@ -8,12 +8,13 @@ gem 'thin'
 gem 'devise'
 # translations for the devise gem
 gem 'devise-i18n'
+
 # flexible authentication system utilizing Rack middleware
 gem 'omniauth'
-# Facebook OAuth2 Strategy for OmniAuth
 gem 'omniauth-facebook'
-# Twitter OAuth2 Strategy for OmniAuth
 gem 'omniauth-twitter'
+gem 'omniauth-google'
+
 # simple DSL for rendering forms
 gem 'simple_form'
 # settings solution that uses an ERB enabled YAML file and a singleton design pattern

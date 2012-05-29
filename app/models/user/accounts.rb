@@ -19,6 +19,14 @@ class User
       accounts.find_by_provider(UserAccount::TWITTER)
     end
 
+    def connected_to_google?
+      connected_to?(UserAccount::GOOGLE)
+    end
+
+    def google_account
+      accounts.find_by_provider(UserAccount::GOOGLE)
+    end
+
     # Check if the user is connected to the given account
     def connected_to?(provider)
       accounts.exists?(:provider => provider.to_s)

@@ -10,11 +10,14 @@ defaults: &defaults
     exception_recipients: 'lucassus@gmail.com'
   omniauth:
     twitter:
-      app_id: '3i3gwbqOoETDV87aVPec1g'
-      app_secret: 'eOsgv0pf12lKBK68wLqcwzcetPLlcFlfJLQqeMCBgc0'
+      app_id: 'fill me'
+      app_secret: 'fill me'
     facebook:
-      app_id: '226905227381277'
-      app_secret: 'f84949b9762bd5e952aff53b35d440ea'
+      app_id: 'fill me'
+      app_secret: 'fill me'
+    google:
+      app_id: 'fill me'
+      app_secret: 'fill me'
 
 development:
   <<: *defaults

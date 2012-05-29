@@ -41,6 +41,17 @@ describe User::Accounts do
     end
   end
 
+  context 'google' do
+    context 'when an user an account' do
+      let!(:account) { create(:user_account, :google, :user => subject) }
+      it_behaves_like 'an user connected to', :google
+    end
+
+    context 'when an user does not have an account' do
+      it_behaves_like 'an user not connected to', :google
+    end
+  end
+
   describe '#connect_to!' do
     context 'when an user is not connected' do
       describe 'connected account' do

@@ -12,5 +12,9 @@ FactoryGirl.define do
     trait :twitter do
       provider UserAccount::TWITTER
     end
+
+    trait :google do
+      provider UserAccount::GOOGLE
+    end
   end
 end

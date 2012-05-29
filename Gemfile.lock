@@ -194,11 +194,15 @@ GEM
       faraday (~> 0.7)
       httpauth (~> 0.1)
       multi_json (~> 1.3)
-    omniauth (1.1.0)
+    omniauth (1.0.3)
       hashie (~> 1.2)
       rack
     omniauth-facebook (1.3.0)
       omniauth-oauth2 (~> 1.0.2)
+    omniauth-google (1.0.1)
+      multi_json
+      omniauth (~> 1.0.0)
+      omniauth-oauth
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
@@ -366,6 +370,7 @@ DEPENDENCIES
   meta_search
   omniauth
   omniauth-facebook
+  omniauth-google
   omniauth-twitter
   pg
   quiet_assets

@@ -8,4 +8,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook, facebook_config.app_id, facebook_config.app_secret,
     :scope =>  'publish_stream,offline_access',
     :client_options => { :ssl => { :ca_path => '/etc/ssl/certs'} }
+
+  ## Google integration
+  google_config = Settings.omniauth.google
+  provider :google, google_config.app_id, google_config.app_secret
 end
