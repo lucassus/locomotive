@@ -24,6 +24,11 @@ gem 'bluecloth'
 # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
 gem 'exception_notification'
 
+# Adds foreign key helpers to migrations and correctly dumps foreign keys to schema.rb
+gem 'foreigner'
+# Immigrant gives Foreigner a migration generator so you can effortlessly add missing foreign keys.
+gem 'immigrant'
+
 # ActiveAdmin dependencies
 gem 'activeadmin'
 gem 'formtastic', '2.0.0'
