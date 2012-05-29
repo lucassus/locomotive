@@ -19,9 +19,9 @@ describe Post do
   end
 
   describe 'scopes' do
-    let!(:first_published_post) { create(:published_post, :created_at => 1.day.ago) }
-    let!(:second_published_post) { create(:published_post) }
-    let!(:unpublished_post) { create(:unpublished_post) }
+    let!(:first_published_post) { create(:post, :published, :created_at => 1.day.ago) }
+    let!(:second_published_post) { create(:post, :published) }
+    let!(:unpublished_post) { create(:post, :unpublished) }
 
     describe '.published' do
       subject { Post.published }

@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Admin panel' do
 
   describe 'an admin user' do
-    let!(:user) { create(:user, :email => 'admin@email.com', :admin => true) }
+    let!(:user) { create(:user, :admin, :email => 'admin@email.com') }
 
     background do
       login_with(user)

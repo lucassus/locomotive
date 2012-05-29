@@ -32,9 +32,17 @@ class User < ActiveRecord::Base
     connected_to?(UserAccount::FACEBOOK)
   end
 
+  def facebook_account
+    accounts.find_by_provider(UserAccount::FACEBOOK)
+  end
+
   # Check if the user is connected to twitter account
   def connected_to_twitter?
     connected_to?(UserAccount::TWITTER)
+  end
+
+  def twitter_account
+    accounts.find_by_provider(UserAccount::TWITTER)
   end
 
   # Check if the user is connected to the given account

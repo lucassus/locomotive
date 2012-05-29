@@ -5,8 +5,21 @@ FactoryGirl.define do
     password 'password'
     password_confirmation { password }
 
-    factory :admin_user do
+    admin false
+    suspended false
+
+    trait :admin do
       admin true
+    end
+
+    trait :suspended do
+      suspended true
+    end
+
+    trait :with_facebook_account do
+      after(:create) do |user|
+        create(:user_account, :facebook, :user => user)
+      end
     end
   end
 end

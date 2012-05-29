@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Reading blog posts' do
-  let!(:published_post) { create(:published_post) }
+  let!(:published_post) { create(:post, :published) }
 
   background do
     visit root_path

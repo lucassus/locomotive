@@ -4,11 +4,11 @@ FactoryGirl.define do
     body { Faker::Lorem.paragraphs.join("\n") }
     published { [true, false].sample }
 
-    factory :published_post do
+    trait :published do
       published true
     end
 
-    factory :unpublished_post do
+    trait :unpublished do
       published false
     end
   end

@@ -31,8 +31,8 @@ describe User do
     before { 3.times { create(:user) } }
 
     describe '#admin' do
-      let!(:first_admin) { create(:admin_user) }
-      let!(:second_admin) { create(:admin_user) }
+      let!(:first_admin) { create(:user, :admin) }
+      let!(:second_admin) { create(:user, :admin) }
 
       subject { User.admin }
 
@@ -42,12 +42,45 @@ describe User do
     end
 
     describe '#suspended' do
-      let!(:suspended_user) { create(:user, :suspended => true) }
+      let!(:suspended_user) { create(:user, :suspended) }
 
       subject { User.suspended }
 
       it { should have(1).item }
       it { should include(suspended_user) }
+    end
+  end
+
+  # TODO try dry it with shared examples
+  describe 'accounts' do
+    context 'facebook' do
+      context 'when an user has an account' do
+        let!(:account) { create(:user_account, :facebook, :user => subject) }
+
+        it { should be_connected_to_facebook }
+        its(:facebook_account) { should_not be_nil }
+        its(:facebook_account) { should == account }
+      end
+
+      context 'otherwise' do
+        it { should_not be_connected_to_facebook }
+        its(:facebook_account) { should be_nil }
+      end
+    end
+
+    context 'twitter' do
+      context 'when an user an account' do
+        let!(:account) { create(:user_account, :twitter, :user => subject) }
+
+        it { should be_connected_to_twitter }
+        its(:twitter_account) { should_not be_nil }
+        its(:twitter_account) { should == account }
+      end
+
+      context 'otherwise' do
+        it { should_not be_connected_to_twitter }
+        its(:twitter_account) { should be_nil }
+      end
     end
   end
 end

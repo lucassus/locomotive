@@ -5,11 +5,11 @@ FactoryGirl.define do
     provider 'facebook'
     uid 'facebook-user-id'
 
-    factory :facebook_account do
+    trait :facebook do
       provider UserAccount::FACEBOOK
     end
 
-    factory :twitter_account do
+    trait :twitter do
       provider UserAccount::TWITTER
     end
   end

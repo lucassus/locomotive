@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature 'Facebook connect' do
   let(:uid) { '123545' }
-  let!(:user) { create(:user, :email => 'user@email.com') }
 
   background do
     login_with(user)
@@ -18,6 +17,8 @@ feature 'Facebook connect' do
   end
 
   context 'when an user is not connected with Facebook account' do
+    let(:user) { create(:user, :email => 'user@email.com') }
+
     scenario 'connect with Facebook account' do
       click_link 'Accounts'
       page.should have_content('My connected accounts')
@@ -39,7 +40,7 @@ feature 'Facebook connect' do
   end
 
   context 'when an user is connected with Facebook account' do
-    let!(:user_facebook_account) { create(:facebook_account, :user => user, :uid => uid) }
+    let(:user) { create(:user, :with_facebook_account) }
 
     scenario 'disconnect' do
       click_link 'Accounts'

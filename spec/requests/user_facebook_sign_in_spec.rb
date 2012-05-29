@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 feature 'Sign in via Facebook' do
-  let!(:user) { create(:user) }
-  let!(:user_facebook_account) { create(:facebook_account, :user => user) }
+  let!(:user) { create(:user, :with_facebook_account) }
 
   background do
     visit root_path
@@ -10,7 +9,7 @@ feature 'Sign in via Facebook' do
 
     OmniAuth.config.mock_auth[:facebook] = {
         :provider => 'facebook',
-        :uid => user_facebook_account.uid,
+        :uid => user.facebook_account.uid,
         :credentials => {
             :token => 'facebook token'
         }

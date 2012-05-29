@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Admin can manage static pages' do
-  let!(:admin_user) { create(:admin_user) }
+  let!(:admin_user) { create(:user, :admin) }
 
   background do
     create(:static_page, :name => :about)

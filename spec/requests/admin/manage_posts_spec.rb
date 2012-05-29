@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature 'Admin can manage posts' do
-  let!(:admin_user) { create(:admin_user) }
+  let!(:admin_user) { create(:user, :admin) }
 
   background do
-    3.times { create(:published_post) }
-    2.times { create(:unpublished_post) }
+    3.times { create(:post, :published) }
+    2.times { create(:post, :unpublished) }
     login_with(admin_user)
 
     visit admin_dashboard_path
