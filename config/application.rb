@@ -76,8 +76,12 @@ module Locomotive
       g.fixture_replacement :factory_girl
     end
 
-    config.middleware.use ExceptionNotifier,
-                          :sender_address => 'error@locomotive.com',
-                          :exception_recipients => 'lucassus@gmail.com'
+    unless Rails.env.production? or Rails.env.staging?
+      require 'exception_notification'
+
+      config.middleware.use ExceptionNotifier,
+                            :sender_address => 'error@locomotive.com',
+                            :exception_recipients => 'lucassus@gmail.com'
+    end
   end
 end

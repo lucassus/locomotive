@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
+# PostgreSQL client library
+gem 'pg'
+
 # a very fast & simple Ruby web server
 gem 'thin'
 # authentication solution for Rails with Warden
@@ -21,8 +24,6 @@ gem 'simple_form'
 gem 'settingslogic'
 # markdown processor in Ruby
 gem 'bluecloth'
-# sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
-gem 'exception_notification'
 
 # Adds foreign key helpers to migrations and correctly dumps foreign keys to schema.rb
 gem 'foreigner'
@@ -35,8 +36,8 @@ gem 'formtastic', '2.0.0'
 gem 'meta_search'
 
 group :production do
-  # PostgreSQL client library
-  gem 'pg'
+  # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
+  gem 'exception_notification', :require => false
 end
 
 # Gems used only for assets and not required
@@ -55,10 +56,8 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'sqlite3'
-
-  gem 'debugger'
-  gem 'awesome_print'
+  gem 'debugger', :require => false
+  gem 'awesome_print', :require => false
 
   gem 'factory_girl_rails'
   gem 'faker'
@@ -71,7 +70,7 @@ end
 
 group :development do
   # helpful stuffs for Heroku
-  gem 'heroku_san'
+  gem 'heroku_san', :require => false
   # gives information about your application in the footer
   gem 'rails-footnotes'
   # mutes assets pipeline log messages
@@ -80,7 +79,7 @@ group :development do
   gem 'i18n_generators'
 
   # Ruby Documentation tool
-  gem 'yard'
+  gem 'yard', :require => false
   # gem for Markdown formatting (required by yardoc for generating docs from *.md files)
   gem 'redcarpet'
 
@@ -92,7 +91,7 @@ group :development do
   gem 'guard-rspec'
 
   # a code metric tool to check the quality of rails codes
-  gem 'rails_best_practices'
+  gem 'rails_best_practices', :require => false
 end
 
 group :test do
