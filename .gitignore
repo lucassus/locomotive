@@ -7,6 +7,7 @@
 # Ignore bundler config
 /.bundle
 /.bin
+/bin
 /vendor/bundle
 
 # Ignore databases and config files.
