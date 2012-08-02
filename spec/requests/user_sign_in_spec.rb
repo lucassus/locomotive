@@ -34,7 +34,7 @@ feature 'Sign in' do
   end
 
   describe 'when an user is suspended' do
-    before { user.update_attribute(:suspended, true) }
+    before { user.update_attributes(suspended: true) }
 
     background do
       fill_in 'Email', :with => user.email

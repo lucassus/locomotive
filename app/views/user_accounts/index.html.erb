@@ -18,7 +18,7 @@
     <td><%= account.uid %></td>
     <td><%= account.token %></td>
     <td><%= account.created_at %></td>
-    <td><%= link_to 'Delete', user_account_path(account), :method => :delete, :confirm => 'Are you sure?' %></td>
+    <td><%= link_to 'Delete', user_account_path(account), :method => :delete, :'data-confirm' => 'Are you sure?' %></td>
   </tr>
   <% end %>
   </tbody>
