@@ -98,6 +98,8 @@ group :development do
 end
 
 group :test do
+  # Required by Travis CI
+  gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'fuubar'
