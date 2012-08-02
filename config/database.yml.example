@@ -1,17 +1,19 @@
 defaults: &defaults
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
   pool: 5
-  timeout: 5000
+  username: postgres
+  password: postgres
 
 development:
   <<: *defaults
-  database: db/development.sqlite3
+  database: locomotive_development
 
 test:
   <<: *defaults
-  database: db/test.sqlite3<%= ENV['TEST_ENV_NUMBER'] %>
+  database: locomotive_test<%= ENV['TEST_ENV_NUMBER'] %>
 
-production:
+staging:
   <<: *defaults
-  database: db/production.sqlite3
+  database: locomotive_development
