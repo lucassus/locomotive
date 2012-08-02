@@ -160,3 +160,23 @@ Record your test suite's HTTP interactions and replay them during future test ru
 You could use this library in development mode in order to debug interactions with external APIs:
 
     VCR_LOGGING=1 rails server
+
+## Gotchas
+
+### Speed up tests with parallel_tests
+
+Without parallel: **Finished in 2 minutes 42.21 seconds**
+
+With parallel: **Took 55.792039342 seconds**
+
+* if you want to execute all specs (in paraller)
+
+```
+rake parallel:spec
+```
+
+* if you want to execute all specs for API (in parallel)
+
+```
+bundle exec parallel_rspec spec/ -n 8 -o '--tag api'
+```

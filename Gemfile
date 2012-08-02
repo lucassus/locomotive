@@ -62,6 +62,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
 
+  # Run tests on multiple cores
+  gem 'parallel_tests'
+
   # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
   gem 'vcr', :require => false
   # Library for stubbing and setting expectations on HTTP requests in Ruby. (required by vcr)
