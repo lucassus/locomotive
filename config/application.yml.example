@@ -7,7 +7,7 @@ defaults: &defaults
     password: 'password'
   exception_notification:
     sender_address: 'error@locomotive.com'
-    exception_recipients: 'lucassus@gmail.com'
+    exception_recipients: 'my@email.com'
   omniauth:
     twitter:
       app_id: 'fill me'
