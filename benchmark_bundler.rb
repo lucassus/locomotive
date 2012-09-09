@@ -45,7 +45,7 @@ require 'rails/all'
 
 $VERBOSE = nil
 
-iterations = 10
+iterations = ENV['ITERATIONS'].to_i || 10
 report = {}
 iterations.times do |i|
   puts "pass #{i + 1} of #{iterations}"
@@ -90,11 +90,14 @@ report.values.each do |info|
   sum_real += info[:real] / iterations
 end
 
+puts "\nResults:"
+
 padding = report.keys.collect(&:size).max
-puts "#{'gem'.ljust(padding)} #{'user'.ljust(8)} #{'system'.ljust(8)} #{'total'.ljust(8)} #{'real'.ljust(8)}"
-puts('-' * (padding + 36))
-report.to_a.sort{|a,b| b.last[:real] <=> a.last[:real]}.each do |name, info|
-  puts "#{name.ljust(padding)} #{sprintf('%0.6f', info[:user] / iterations)} #{sprintf('%0.6f', info[:system] / iterations)} #{sprintf('%0.6f', info[:total] / iterations)} #{sprintf('%0.6f', info[:real] / iterations)}"
+column_size = 10
+puts "#{'gem'.ljust(padding)} #{'user'.ljust(column_size)} #{'system'.ljust(column_size)} #{'total'.ljust(column_size)} #{'real'.ljust(column_size)}"
+puts('-' * (padding + (column_size + 1) * 4))
+report.to_a.sort { |a, b| b.last[:real] <=> a.last[:real] }.each do |name, info|
+  puts "#{name.ljust(padding)} #{sprintf("%0.#{column_size - 2}f", info[:user] / iterations)} #{sprintf("%0.#{column_size - 2}f", info[:system] / iterations)} #{sprintf("%0.#{column_size - 2}f", info[:total] / iterations)} #{sprintf("%0.#{column_size - 2}f", info[:real] / iterations)}"
 end
-puts('-' * (padding + 36))
-puts "#{'TOTAL'.ljust(padding)} #{sprintf('%0.6f', sum_user)} #{sprintf('%0.6f', sum_system)} #{sprintf('%0.6f', sum_total)} #{sprintf('%0.6f', sum_real)}"
+puts('-' * (padding + (column_size + 1) * 4))
+puts "#{'TOTAL'.ljust(padding)} #{sprintf("%0.#{column_size - 2}f", sum_user)} #{sprintf("%0.#{column_size - 2}f", sum_system)} #{sprintf("%0.#{column_size - 2}f", sum_total)} #{sprintf("%0.#{column_size - 2}f", sum_real)}"
