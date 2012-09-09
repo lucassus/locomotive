@@ -15,7 +15,4 @@ ActiveRecord::Base.establish_connection(database_config)
 Dir[File.join(root_path, "app/models/extensions**/*.rb")].each { |f| require f }
 Dir[File.join(root_path, "app/models/**/*.rb")].each { |f| require f }
 
-require 'debugger'
-debugger
-
-p 'test'
+# TODO do sth with the db
