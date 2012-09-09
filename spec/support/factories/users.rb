@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:email) { |n| Faker::Internet.email("user_#{n}") }
+    sequence(:email) { |n| "user_#{n}@email.com" }
 
     password 'password'
     password_confirmation { password }
