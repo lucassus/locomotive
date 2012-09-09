@@ -12,8 +12,8 @@ end
 user.save!
 
 if Rails.env.development?
-  20.times { Factory.create(:user) }
-  20.times { Factory.create(:post) }
+  20.times { FactoryGirl.create(:user) }
+  10.times { FactoryGirl.create(:post) }
 end
 
 [:about, :contact].each do |name|
