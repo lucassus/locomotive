@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'spec_models_helper'
 
 describe Post do
 

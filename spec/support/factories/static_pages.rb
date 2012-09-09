@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :static_page do
     name 'about'
-    content { Faker::Lorem.paragraphs.join("\n") }
+    sequence(:content) { |n| "Page content #{n}" }
   end
 end

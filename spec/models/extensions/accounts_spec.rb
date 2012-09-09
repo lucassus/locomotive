@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'spec_models_helper'
 
 describe Extensions::UserAccounts do
   let(:user) { create(:user) }
