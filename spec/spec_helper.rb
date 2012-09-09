@@ -86,9 +86,6 @@ Spork.prefork do
     config.include Macros::UserLogin, :type => :request
     config.include Macros::Mailer, :type => :request
 
-    # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-    config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
     # Clean up the database
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction

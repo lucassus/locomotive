@@ -59,7 +59,6 @@ group :development, :test do
   gem 'awesome_print', require: false
 
   gem 'factory_girl_rails'
-  gem 'faker'
 
   # Run tests on multiple cores
   gem 'parallel_tests'
