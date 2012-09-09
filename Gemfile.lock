@@ -50,7 +50,7 @@ GEM
     bluecloth (2.2.0)
     bourbon (2.1.1)
       sass (>= 3.1)
-    builder (3.0.2)
+    builder (3.0.3)
     capybara (1.1.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -110,8 +110,8 @@ GEM
     ffi (1.1.5)
     foreigner (1.2.1)
       activerecord (>= 3.0.0)
-    formtastic (2.0.0)
-      rails (~> 3.0)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
     fuubar (1.0.0)
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
@@ -373,7 +373,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   foreigner
-  formtastic (= 2.0.0)
   fuubar
   guard
   guard-rspec

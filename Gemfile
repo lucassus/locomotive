@@ -32,7 +32,6 @@ gem 'immigrant'
 
 # ActiveAdmin dependencies
 gem 'activeadmin'
-gem 'formtastic', '2.0.0'
 gem 'meta_search'
 
 group :production do

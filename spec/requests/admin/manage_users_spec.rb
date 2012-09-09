@@ -36,7 +36,7 @@ feature 'Admin can manage users' do
   scenario 'an admin can edit an user' do
     user = User.last
 
-    within "#user_#{user.id}" do
+    within "tr#user_#{user.id}" do
       click_link 'Edit'
     end
 
@@ -64,7 +64,7 @@ feature 'Admin can manage users' do
   scenario 'an admin can suspend an user' do
     user = User.last
 
-    within "#user_#{user.id}" do
+    within "tr#user_#{user.id}" do
       click_link 'Edit'
     end
 
