@@ -36,7 +36,7 @@ gem 'meta_search'
 
 group :production do
   # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
-  gem 'exception_notification', :require => false
+  gem 'exception_notification', require: false
 end
 
 # Gems used only for assets and not required
@@ -46,7 +46,7 @@ group :assets do
   gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platform => :ruby
+  gem 'therubyracer', platform: :ruby
   gem 'uglifier', '>= 1.0.3'
 
   gem 'jquery-rails'
@@ -55,8 +55,8 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'debugger', :require => false
-  gem 'awesome_print', :require => false
+  gem 'debugger', require: false
+  gem 'awesome_print', require: false
 
   gem 'factory_girl_rails'
   gem 'faker'
@@ -65,14 +65,14 @@ group :development, :test do
   gem 'parallel_tests'
 
   # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
-  gem 'vcr', :require => false
+  gem 'vcr', require: false
   # Library for stubbing and setting expectations on HTTP requests in Ruby. (required by vcr)
-  gem 'webmock', :require => false
+  gem 'webmock', require: false
 end
 
 group :development do
   # helpful stuffs for Heroku
-  gem 'heroku_san', :require => false
+  gem 'heroku_san', require: false
   # gives information about your application in the footer
   gem 'rails-footnotes'
   # mutes assets pipeline log messages
@@ -81,7 +81,7 @@ group :development do
   gem 'i18n_generators'
 
   # Ruby Documentation tool
-  gem 'yard', :require => false
+  gem 'yard', require: false
   # gem for Markdown formatting (required by yardoc for generating docs from *.md files)
   gem 'redcarpet'
 
@@ -93,7 +93,7 @@ group :development do
   gem 'guard-rspec'
 
   # a code metric tool to check the quality of rails codes
-  gem 'rails_best_practices', :require => false
+  gem 'rails_best_practices', require: false
 end
 
 group :test do
@@ -107,6 +107,6 @@ group :test do
   gem 'spork'
   gem 'database_cleaner'
 
-  gem 'simplecov', :require => false
-  gem 'simplecov-rcov', :require => false
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
 end
