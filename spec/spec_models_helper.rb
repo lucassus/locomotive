@@ -15,6 +15,10 @@ database_config = YAML::load(yml)[env]
 require 'active_record'
 ActiveRecord::Base.establish_connection(database_config)
 
+# Load foreigner gem
+require 'foreigner'
+Foreigner.load
+
 Dir[File.join(root_path, "app/models/extensions**/*.rb")].each { |f| require f }
 Dir[File.join(root_path, "app/models/**/*.rb")].each { |f| require f }
 

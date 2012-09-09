@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
-    title { Faker::Name.title }
-    body { Faker::Lorem.paragraphs.join("\n") }
+    sequence(:title) { |n| "Post title #{n}" }
+    sequence(:body) { |n| "Post body #{n}" }
     published { [true, false].sample }
 
     trait :published do
