@@ -31,8 +31,8 @@ gem 'foreigner'
 gem 'immigrant'
 
 # ActiveAdmin dependencies
+# TODO reduce activeadmin load time
 gem 'activeadmin'
-gem 'meta_search'
 
 group :production do
   # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception

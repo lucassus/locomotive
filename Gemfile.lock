@@ -383,7 +383,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   markitup_rails
-  meta_search
   omniauth
   omniauth-facebook
   omniauth-google
