@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User::Accounts do
+describe Extensions::UserAccounts do
   let(:user) { create(:user) }
   subject { user }
 

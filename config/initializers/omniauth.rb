@@ -1,3 +1,5 @@
+require 'settings'
+
 Rails.application.config.middleware.use OmniAuth::Builder do
   ## Twitter integration
   twitter_config = Settings.omniauth.twitter
