@@ -26,7 +26,7 @@ ActiveAdmin.register StaticPage do
       f.input :content, :input_html => { :class => 'editor' }
     end
 
-    f.buttons
+    f.actions
   end
 
 end

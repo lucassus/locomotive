@@ -19,7 +19,7 @@ ActiveAdmin.register Post do
       f.input :published
     end
 
-    f.buttons
+    f.actions
   end
 
   show do

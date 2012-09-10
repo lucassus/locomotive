@@ -28,7 +28,7 @@ ActiveAdmin.register User do
       f.input :suspended
     end
 
-    f.buttons
+    f.actions
   end
 
   controller do
