@@ -70,9 +70,6 @@ Spork.prefork do
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-  # Setup locale
-  I18n.default_locale = I18n.locale = :en
-
   VCR.configure do |c|
     c.cassette_library_dir = File.expand_path('spec/vcr_cassettes', Rails.root)
     c.hook_into :webmock
