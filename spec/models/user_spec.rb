@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  subject { create(:user) }
-
   describe 'fields' do
     it_behaves_like 'a model with the following database columns',
                     [:email, :string],
@@ -19,17 +17,19 @@ describe User do
                   :suspended
 
   describe 'associations' do
+    subject(:user) { create(:user) }
+
     it { should have_many(:accounts) }
 
     describe 'on delete' do
       before do
-        create(:user_account, :facebook, :user => subject)
-        create(:user_account, :twitter, :user => subject)
+        create(:user_account, :facebook, user: user)
+        create(:user_account, :twitter, user: user)
       end
 
       it 'should delete associated images' do
         expect do
-          subject.destroy
+          user.destroy
         end.to change(UserAccount, :count).by(-2)
       end
     end
@@ -41,26 +41,40 @@ describe User do
   end
 
   describe 'scopes' do
-    before { 3.times { create(:user) } }
+    let!(:first_user) { create(:user) }
+    let!(:second_user) { create(:user) }
+    let!(:third_user) { create(:user) }
 
-    describe '#admin' do
-      let!(:first_admin) { create(:user, :admin) }
-      let!(:second_admin) { create(:user, :admin) }
+    describe '.admin' do
+      before do
+        first_user.update_column(:admin, true)
+        third_user.update_column(:admin, true)
+      end
 
       subject { User.admin }
 
-      it { should have(2).items }
-      it { should include(first_admin) }
-      it { should include(second_admin) }
+      it 'should return only admin users' do
+        should have(2).items
+        should include(first_user)
+        should include(third_user)
+        should_not include(second_user)
+      end
     end
 
-    describe '#suspended' do
-      let!(:suspended_user) { create(:user, :suspended) }
+    describe '.suspended' do
+      before do
+        first_user.update_column(:suspended, true)
+        second_user.update_column(:suspended, true)
+      end
 
       subject { User.suspended }
 
-      it { should have(1).item }
-      it { should include(suspended_user) }
+      it 'should return only suspended users' do
+        should have(2).items
+        should include(first_user)
+        should include(second_user)
+        should_not include(third_user)
+      end
     end
   end
 end
