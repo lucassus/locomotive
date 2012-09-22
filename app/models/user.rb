@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
                   :suspended
 
   has_many :accounts, :class_name => 'UserAccount'
-  include Extensions::UserAccounts
+  include User::Accounts
 
   # Returns a collection of admin users
   # @return [Array<User>]

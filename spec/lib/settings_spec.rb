@@ -1,4 +1,4 @@
-require 'spec_models_helper'
+require 'spec_helper'
 
 describe Settings do
 

@@ -1,14 +1,14 @@
 require 'rubygems'
 require 'bundler/setup'
 
+# Configure load paths
+require 'active_support/dependencies'
+
 root_path = File.expand_path("../..", __FILE__)
 $LOAD_PATH.unshift(root_path) unless $LOAD_PATH.include?(root_path)
 
-require_all = lambda do |path|
-  Dir[File.join(root_path, "#{path}/**/*.rb")].each do |file|
-    require file
-  end
-end
+ActiveSupport::Dependencies.autoload_paths << 'app/models'
+ActiveSupport::Dependencies.autoload_paths << 'lib'
 
 # Load database config
 require 'erb'
@@ -25,9 +25,6 @@ ActiveRecord::Base.establish_connection(database_config)
 require 'foreigner'
 Foreigner.load
 
-require_all.call 'app/models/extensions'
-require_all.call 'app/models'
-
 require 'rspec'
 require 'shoulda-matchers'
 require 'database_cleaner'
@@ -35,7 +32,7 @@ require 'factory_girl'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-require_all.call 'spec/support'
+Dir[File.join(root_path, "spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
