@@ -35,6 +35,7 @@ gem 'immigrant'
 gem 'activeadmin'
 
 gem 'resque'
+gem 'foreman'
 
 group :production do
   # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
