@@ -35,6 +35,7 @@ gem 'immigrant'
 gem 'activeadmin'
 
 gem 'resque'
+gem 'resque-status'
 gem 'foreman'
 
 group :production do
