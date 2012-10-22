@@ -34,6 +34,8 @@ gem 'immigrant'
 # TODO reduce activeadmin load time
 gem 'activeadmin'
 
+gem 'resque'
+
 group :production do
   # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
   gem 'exception_notification', require: false

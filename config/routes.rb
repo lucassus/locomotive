@@ -13,4 +13,5 @@ Locomotive::Application.routes.draw do
   end
 
   match 'dummy_error' => 'home#dummy_error' unless Rails.env.production?
+  match 'eat/:food' => 'eat#food'
 end
