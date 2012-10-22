@@ -6,7 +6,8 @@ class SleepJob
     num = 0
     while num < total
       at(num, total, "At #{num} of #{total}")
-      sleep(1)
+      sleep(rand * 2)
+
       num += 1
     end
   end
