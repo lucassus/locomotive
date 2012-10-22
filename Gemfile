@@ -34,9 +34,10 @@ gem 'immigrant'
 # TODO reduce activeadmin load time
 gem 'activeadmin'
 
+gem 'foreman'
 gem 'resque'
 gem 'resque-status'
-gem 'foreman'
+gem 'resque-scheduler', :require => 'resque_scheduler'
 
 group :production do
   # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception

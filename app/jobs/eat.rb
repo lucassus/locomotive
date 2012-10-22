@@ -1,5 +1,4 @@
-class Eat
-  include Resque::Plugins::Status
+class Eat < Resque::JobWithStatus
   @queue = :food
 
   def perform

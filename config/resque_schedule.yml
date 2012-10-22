@@ -1,0 +1,6 @@
+create_eat:
+  every: 5s
+  class: Eat
+  custom_job_class: Eat
+  args: { food: 'some food' }
+  description: Runs the perform method in Eat job

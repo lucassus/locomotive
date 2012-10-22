@@ -1,3 +1,4 @@
-web:    bundle exec rails server thin -p $PORT
-log:    tail -f log/development.log
+web: bundle exec rails server thin -p $PORT
+log: tail -f log/development.log
 worker: bundle exec rake environment resque:work QUEUE=*
+schedule_worker: bundle exec rake environment resque:scheduler QUEUE=*
