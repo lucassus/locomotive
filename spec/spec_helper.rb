@@ -3,7 +3,7 @@ require 'rubygems'
 # Setup simplecov
 # In order to run test code coverage execute the following command `SIMPLECOV=1 rspec spec`
 # (it has to be defined before RSpec.configure block)
-if ENV['SIMPLECOV'] and not Spork.using_spork?
+if ENV['SIMPLECOV']
   require 'simplecov'
   require 'simplecov-rcov'
 

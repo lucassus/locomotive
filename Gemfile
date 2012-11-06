@@ -105,7 +105,6 @@ group :test do
   gem 'launchy'
   gem 'capybara'
   gem 'capybara-email'
-  gem 'spork'
   gem 'database_cleaner'
 
   gem 'simplecov', require: false
