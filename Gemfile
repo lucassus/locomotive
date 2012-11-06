@@ -88,10 +88,10 @@ group :development do
 
   # a command line tool to easily handle events on file system modifications
   gem 'guard'
-  # automatically manage Spork DRb servers
-  gem 'guard-spork'
-  # automatically run your specs
-  gem 'guard-rspec'
+
+  # speeds up your Rails testing workflow by preloading your Rails environment
+  gem 'spin'
+  gem 'guard-spin'
 
   # a code metric tool to check the quality of rails codes
   gem 'rails_best_practices', require: false

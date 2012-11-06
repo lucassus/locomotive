@@ -149,10 +149,6 @@ Sample routing spec output;
 
 TODO
 
-## Spork
-
-[Blog post about spork](http://ablogaboutcode.com/2011/05/18/spork-rspec-sham-and-caching-classes)
-
 ## Vcr
 
 Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
