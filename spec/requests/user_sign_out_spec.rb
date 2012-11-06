@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Sign out' do
   background do
     user = create(:user, :email => 'user@email.com')
-    login_with(user)
+    sign_in_as(user)
 
     visit root_path
     click_link 'Sign out'

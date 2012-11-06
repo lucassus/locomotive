@@ -4,7 +4,7 @@ feature 'Facebook connect' do
   let(:uid) { '123545' }
 
   background do
-    login_with(user)
+    sign_in_as(user)
     visit root_path
 
     OmniAuth.config.mock_auth[:facebook] = {

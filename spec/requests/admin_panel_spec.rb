@@ -6,7 +6,7 @@ feature 'Admin panel' do
     let!(:user) { create(:user, :admin, :email => 'admin@email.com') }
 
     background do
-      login_with(user)
+      sign_in_as(user)
     end
 
     scenario 'should be able to access the admin panel' do
@@ -22,7 +22,7 @@ feature 'Admin panel' do
     let!(:user) { create(:user) }
 
     background do
-      login_with(user)
+      sign_in_as(user)
       visit admin_dashboard_path
     end
 

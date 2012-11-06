@@ -4,7 +4,7 @@ feature 'User profile' do
   let!(:user) { create(:user, :email => 'user@email.com') }
 
   background do
-    login_with(user)
+    sign_in_as(user)
     visit root_path
     click_link 'My profile'
   end
@@ -34,7 +34,7 @@ feature 'User profile' do
 
     scenario 'an user should be able to login with new password' do
       logout
-      login_with(user, :password => 'new password')
+      sign_in_as(user, :password => 'new password')
       page.should display_flash_message('Signed in successfully.')
     end
   end

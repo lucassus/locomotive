@@ -5,7 +5,7 @@ feature 'Admin can manage users' do
 
   background do
     3.times { create(:user) }
-    login_with(admin_user)
+    sign_in_as(admin_user)
 
     visit admin_dashboard_path
     click_link 'Users'

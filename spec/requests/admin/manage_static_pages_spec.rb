@@ -6,7 +6,7 @@ feature 'Admin can manage static pages' do
   background do
     create(:static_page, :name => :about)
     create(:static_page, :name => :contact)
-    login_with(admin_user)
+    sign_in_as(admin_user)
 
     visit admin_dashboard_path
     click_link 'Static Pages'

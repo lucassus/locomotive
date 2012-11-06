@@ -6,7 +6,7 @@ feature 'Admin can manage posts' do
   background do
     3.times { create(:post, :published) }
     2.times { create(:post, :unpublished) }
-    login_with(admin_user)
+    sign_in_as(admin_user)
 
     visit admin_dashboard_path
     click_link 'Posts'
