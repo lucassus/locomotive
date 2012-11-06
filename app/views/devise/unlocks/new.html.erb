@@ -1,11 +1,11 @@
 <h2>Resend unlock instructions</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name),
-                    :html => { :class => 'form-horizontal', :method => :post }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name),
+                    html: { class: 'form-horizontal', method: :post }) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :email, :required => true %>
+    <%= f.input :email, required: true %>
   </div>
 
   <div class="form-actions">
