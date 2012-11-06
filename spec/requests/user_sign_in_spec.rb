@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Sign in' do
-  let!(:user) { create(:user, :password => 'password') }
+  let!(:user) { create(:user, password: 'password') }
   background do
     visit root_path
     click_link 'Sign in'
@@ -20,8 +20,8 @@ feature 'Sign in' do
 
   describe 'when an user provides valid credentials' do
     background do
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => 'password'
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: 'password'
       click_button 'Sign in'
     end
 
@@ -37,8 +37,8 @@ feature 'Sign in' do
     before { user.update_attributes(suspended: true) }
 
     background do
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => 'password'
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: 'password'
       click_button 'Sign in'
     end
 

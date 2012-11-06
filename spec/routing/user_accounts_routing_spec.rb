@@ -11,10 +11,10 @@ describe 'User accounts routing' do
 
   describe :user_account_path do
     let(:id) { ':id' }
-    let(:path) { user_account_path(id, :locale => 'en') }
+    let(:path) { user_account_path(id, locale: 'en') }
 
     specify { path.should == "/en/user_accounts/#{id}" }
-    specify { delete(path).should route_to('user_accounts#destroy', :id => id, :locale => 'en') }
+    specify { delete(path).should route_to('user_accounts#destroy', id: id, locale: 'en') }
   end
 
 end

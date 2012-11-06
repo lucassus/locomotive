@@ -19,9 +19,9 @@ feature 'Sign up' do
 
   describe 'when user provides valid credentials' do
     background do
-      fill_in 'Email', :with => 'new@user.com'
-      fill_in 'Password', :with => 'password'
-      fill_in 'Password confirmation', :with => 'password'
+      fill_in 'Email', with: 'new@user.com'
+      fill_in 'Password', with: 'password'
+      fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
     end
 

@@ -30,7 +30,7 @@ describe ApplicationHelper do
 
       it "should render a list with flash messages" do
         flashes.each do |type, message|
-          should have_selector("div.alert.alert-#{type}", :text => message)
+          should have_selector("div.alert.alert-#{type}", text: message)
         end
       end
     end

@@ -21,7 +21,7 @@ describe User::Accounts do
 
   context 'facebook' do
     context 'when an user has an account' do
-      let!(:account) { create(:user_account, :facebook, :user => subject) }
+      let!(:account) { create(:user_account, :facebook, user: subject) }
       it_behaves_like 'an user connected to', :facebook
     end
 
@@ -32,7 +32,7 @@ describe User::Accounts do
 
   context 'twitter' do
     context 'when an user an account' do
-      let!(:account) { create(:user_account, :twitter, :user => subject) }
+      let!(:account) { create(:user_account, :twitter, user: subject) }
       it_behaves_like 'an user connected to', :twitter
     end
 
@@ -43,7 +43,7 @@ describe User::Accounts do
 
   context 'google' do
     context 'when an user an account' do
-      let!(:account) { create(:user_account, :google, :user => subject) }
+      let!(:account) { create(:user_account, :google, user: subject) }
       it_behaves_like 'an user connected to', :google
     end
 
@@ -55,7 +55,7 @@ describe User::Accounts do
   describe '#connect_to!' do
     context 'when an user is not connected' do
       describe 'connected account' do
-        subject { user.connect_to!('google', { :uid => 'google-id' }) }
+        subject { user.connect_to!('google', { uid: 'google-id' }) }
 
         it { should_not be_nil }
         its(:provider) { should == 'google' }
@@ -64,7 +64,7 @@ describe User::Accounts do
     end
 
     context 'when an user is already connected' do
-      before { create(:user_account, :twitter, :user => subject) }
+      before { create(:user_account, :twitter, user: subject) }
 
       it 'should raise an exception' do
         expect do

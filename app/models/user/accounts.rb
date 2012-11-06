@@ -13,14 +13,14 @@ class User
 
     # Check if the user is connected to the given account
     def connected_to?(provider)
-      accounts.exists?(:provider => provider.to_s)
+      accounts.exists?(provider: provider.to_s)
     end
 
     # Connect the user with given account
     def connect_to!(provider, options)
       raise if connected_to?(provider)
 
-      attributes = options.merge(:provider =>  provider.to_s)
+      attributes = options.merge(provider:  provider.to_s)
       accounts.create!(attributes)
     end
   end

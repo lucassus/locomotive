@@ -30,7 +30,7 @@ module Matchers # :nodoc:
       private
 
       def foreign_key_definition
-        defaults = {:primary_key => "id", :column => "#{@parent.singularize}_id"}
+        defaults = {primary_key: "id", column: "#{@parent.singularize}_id"}
         defaults[:name] = "#{@child.class.table_name}_#{defaults[:column]}_fk"
         defaults[:dependent] = nil if postgresql_db?
         full_options = defaults.merge(@options)
@@ -71,10 +71,10 @@ module Matchers # :nodoc:
     #
     # <b>Examples</b>
     #   it { should have_foreign_key_for(:users) }
-    #   it { should have_foreign_key_for(:users, :dependent => :delete) }
-    #   it { should have_foreign_key_for(:users, :column => "some_column_name", :name => "users_some_column_name_fk") }
-    #   it { should_not have_foreign_key_for(:users, :dependent => :nullify) }
-    def have_foreign_key_for(parent, options={})
+    #   it { should have_foreign_key_for(:users, dependent: :delete) }
+    #   it { should have_foreign_key_for(:users, column: "some_column_name", name: "users_some_column_name_fk") }
+    #   it { should_not have_foreign_key_for(:users, dependent: :nullify) }
+    def have_foreign_key_for(parent, options = {})
       HaveForeignKeyFor.new(parent, options)
     end
   end

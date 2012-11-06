@@ -44,8 +44,8 @@ OmniAuth.config.test_mode = true
 RSpec.configure do |config|
   config.extend VCR::RSpec::Macros
   config.include FactoryGirl::Syntax::Methods
-  config.include Macros::UserLogin, :type => :request
-  config.include Macros::Mailer, :type => :request
+  config.include Macros::UserLogin, type: :request
+  config.include Macros::Mailer, type: :request
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
