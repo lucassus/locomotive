@@ -3,18 +3,24 @@ require 'spec_helper'
 feature 'User signs up' do
   scenario 'with valid email and password' do
     sign_up_with 'valid@example.com', 'password'
+
+    page.should display_flash_message('Welcome! You have signed up successfully.')
     user_should_be_signed_in_as('valid@example.com')
   end
 
   scenario 'with invalid email' do
     sign_up_with 'invalid_email', 'password'
+
     user_should_be_signed_out
   end
 
   scenario 'with blank password' do
     sign_up_with 'valid@example.com', ''
+
     user_should_be_signed_out
   end
+
+  private
 
   def sign_up_with(email, password)
     visit root_path

@@ -33,7 +33,7 @@ feature 'User profile' do
     end
 
     scenario 'an user should be able to login with new password' do
-      logout
+      sign_out
       sign_in_as(user, :password => 'new password')
       page.should display_flash_message('Signed in successfully.')
     end
