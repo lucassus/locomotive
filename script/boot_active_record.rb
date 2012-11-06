@@ -1,3 +1,5 @@
+# TODO use rails dependency loading mechanism
+
 require 'rubygems'
 require 'bundler/setup'
 

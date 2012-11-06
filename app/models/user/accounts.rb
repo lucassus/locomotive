@@ -1,5 +1,5 @@
-module Extensions
-  module UserAccounts
+class User
+  module Accounts
 
     [:facebook, :twitter, :google].each do |provider|
       define_method :"connected_to_#{provider}?" do

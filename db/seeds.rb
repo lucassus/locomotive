@@ -13,11 +13,4 @@ user.save!
 
 if Rails.env.development?
   20.times { FactoryGirl.create(:user) }
-  10.times { FactoryGirl.create(:post) }
-end
-
-[:about, :contact].each do |name|
-  StaticPage.create! do |page|
-    page.name = name
-  end
 end
