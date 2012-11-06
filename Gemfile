@@ -50,6 +50,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'jquery-rails'
+  gem 'less-rails'
   gem 'twitter-bootstrap-rails'
   gem 'markitup_rails'
 end

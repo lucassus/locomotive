@@ -74,6 +74,7 @@ GEM
     coffee-script-source (1.4.0)
     colored (1.2)
     columnize (0.3.6)
+    commonjs (0.2.6)
     crack (0.3.1)
     daemons (1.1.9)
     database_cleaner (0.9.1)
@@ -175,6 +176,11 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.1.2)
       addressable (~> 2.3)
+    less (2.2.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.2.3)
+      actionpack (>= 3.1)
+      less (~> 2.2.0)
     libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
@@ -411,6 +417,7 @@ DEPENDENCIES
   immigrant
   jquery-rails
   launchy
+  less-rails
   markitup_rails
   omniauth
   omniauth-facebook
