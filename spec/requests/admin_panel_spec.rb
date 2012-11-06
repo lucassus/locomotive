@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Admin panel' do
 
   describe 'an admin user' do
-    let!(:user) { create(:user, :admin, :email => 'admin@email.com') }
+    let!(:user) { create(:user, :admin, email: 'admin@email.com') }
 
     background do
       sign_in_as(user)
@@ -35,8 +35,8 @@ feature 'Admin panel' do
       current_path.should == new_user_session_path
       page.should display_flash_message('You need to sign in or sign up before continuing.')
 
-      fill_in 'Email', :with => 'admin@email.com'
-      fill_in 'Password', :with => 'password'
+      fill_in 'Email', with: 'admin@email.com'
+      fill_in 'Password', with: 'password'
     end
   end
 

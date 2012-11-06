@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Reset password' do
-  let!(:user) { create(:user, :email => 'user@email.com') }
+  let!(:user) { create(:user, email: 'user@email.com') }
 
   background do
     visit root_path
@@ -20,7 +20,7 @@ feature 'Reset password' do
 
   describe 'when user request a new password' do
     background do
-      fill_in 'Email', :with => 'user@email.com'
+      fill_in 'Email', with: 'user@email.com'
       click_button 'Send me reset password instructions'
       open_email 'user@email.com'
     end
@@ -54,8 +54,8 @@ feature 'Reset password' do
       context 'when user provide a new password' do
         background do
           within 'form#new_user' do
-            fill_in 'New password', :with => '123123123'
-            fill_in 'Confirm your new password', :with => '123123123'
+            fill_in 'New password', with: '123123123'
+            fill_in 'Confirm your new password', with: '123123123'
             click_button 'Change my password'
           end
         end
@@ -67,8 +67,8 @@ feature 'Reset password' do
         scenario 'user should be able to login with his new password' do
           click_link 'Sign out'
           click_link 'Sign in'
-          fill_in 'Email', :with => 'user@email.com'
-          fill_in 'Password', :with => '123123123'
+          fill_in 'Email', with: 'user@email.com'
+          fill_in 'Password', with: '123123123'
           click_button 'Sign in'
 
           page.should display_flash_message('Signed in successfully.')

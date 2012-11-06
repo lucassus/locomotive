@@ -5,8 +5,8 @@ describe User do
     it_behaves_like 'a model with the following database columns',
                     [:email, :string],
                     [:sign_in_count, :integer],
-                    [:admin, :boolean, :default => false, :null => false],
-                    [:suspended, :boolean, :default => false, :null => false],
+                    [:admin, :boolean, default: false, null: false],
+                    [:suspended, :boolean, default: false, null: false],
                     [:last_sign_in_at, :datetime]
 
     it_behaves_like 'a model with timestampable columns'

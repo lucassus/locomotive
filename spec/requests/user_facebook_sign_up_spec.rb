@@ -7,10 +7,10 @@ feature 'Sign up via Facebook' do
     click_link 'Sign in'
 
     OmniAuth.config.mock_auth[:facebook] = {
-      :provider => 'facebook',
-      :uid => '123545',
-      :credentials => {
-        :token => 'facebook token'
+      provider: 'facebook',
+      uid: '123545',
+      credentials: {
+        token: 'facebook token'
       }
     }
   end
@@ -20,9 +20,9 @@ feature 'Sign up via Facebook' do
     page.should have_content('Sign up')
 
     within 'form#new_user' do
-      fill_in 'Email', :with => 'facebook@user.com'
-      fill_in 'Password', :with => 'password'
-      fill_in 'Password confirmation', :with => 'password'
+      fill_in 'Email', with: 'facebook@user.com'
+      fill_in 'Password', with: 'password'
+      fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
     end
 

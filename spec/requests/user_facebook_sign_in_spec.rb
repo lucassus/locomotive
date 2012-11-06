@@ -8,10 +8,10 @@ feature 'Sign in via Facebook' do
     click_link 'Sign in'
 
     OmniAuth.config.mock_auth[:facebook] = {
-        :provider => 'facebook',
-        :uid => user.facebook_account.uid,
-        :credentials => {
-            :token => 'facebook token'
+        provider: 'facebook',
+        uid: user.facebook_account.uid,
+        credentials: {
+            token: 'facebook token'
         }
     }
   end

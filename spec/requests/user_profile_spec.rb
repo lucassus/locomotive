@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'User profile' do
-  let!(:user) { create(:user, :email => 'user@email.com') }
+  let!(:user) { create(:user, email: 'user@email.com') }
 
   background do
     sign_in_as(user)
@@ -22,9 +22,9 @@ feature 'User profile' do
 
   describe 'change password' do
     background do
-      fill_in 'Password', :with => 'new password'
-      fill_in 'Password confirmation', :with => 'new password'
-      fill_in 'Current password', :with => 'password'
+      fill_in 'Password', with: 'new password'
+      fill_in 'Password confirmation', with: 'new password'
+      fill_in 'Current password', with: 'password'
       click_button 'Update'
     end
 

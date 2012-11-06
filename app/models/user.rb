@@ -1,6 +1,3 @@
-require 'devise'
-require 'devise/orm/active_record'
-
 # User model
 #
 # Important fields:
@@ -13,16 +10,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :suspended
 
-  has_many :accounts, :class_name => 'UserAccount'
-  include Extensions::UserAccounts
+  has_many :accounts, class_name: 'UserAccount'
+  include User::Accounts
 
   # Returns a collection of admin users
   # @return [Array<User>]
-  scope :admin, where(:admin => true)
+  scope :admin, where(admin: true)
 
   # Returns a collection of suspended users
   # @return [Array<User>]
-  scope :suspended, where(:suspended => true)
+  scope :suspended, where(suspended: true)
 
   # Finds a first user on given conditions.
   # @see http://rubydoc.info/github/plataformatec/devise/master/Devise/Models/Authenticatable/ClassMethods:find_for_authentication

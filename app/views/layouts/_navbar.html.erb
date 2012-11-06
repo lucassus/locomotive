@@ -1,12 +1,11 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
-      <%= link_to Settings.app_name, root_path, :class => 'brand' %>
+      <%= link_to Settings.app_name, root_path, class: 'brand' %>
 
       <div class="nav-collapse">
         <ul class="nav">
           <li><%= link_to t('links.home'), root_path %></li>
-          <li><%= link_to t('links.posts'), posts_path %></li>
         </ul>
 
         <ul class="nav pull-right">

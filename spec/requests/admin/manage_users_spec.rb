@@ -21,7 +21,7 @@ feature 'Admin can manage users' do
       page.should have_content('Created At')
       page.should have_content('Last Sign In At')
 
-      page.should have_selector('tbody tr', :count => 4)
+      page.should have_selector('tbody tr', count: 4)
     end
 
     within 'ul.scopes' do
@@ -29,7 +29,7 @@ feature 'Admin can manage users' do
     end
 
     within_table 'users' do
-      page.should have_css('tbody tr', :count => 1)
+      page.should have_css('tbody tr', count: 1)
     end
   end
 
@@ -40,16 +40,16 @@ feature 'Admin can manage users' do
       click_link 'Edit'
     end
 
-    current_path.should == edit_admin_user_path(user, :locale => nil)
+    current_path.should == edit_admin_user_path(user, locale: nil)
     within 'form#edit_user' do
-      page.should have_field('Email', :with => user.email)
+      page.should have_field('Email', with: user.email)
       page.should have_field('Password')
       page.should have_field('Password confirmation')
       page.should have_button('Update User')
 
-      fill_in 'Email', :with => 'new@email.com'
-      fill_in 'Password', :with => 'password'
-      fill_in 'Password confirmation', :with => 'password'
+      fill_in 'Email', with: 'new@email.com'
+      fill_in 'Password', with: 'password'
+      fill_in 'Password confirmation', with: 'password'
       click_button 'Update User'
     end
 
@@ -57,7 +57,7 @@ feature 'Admin can manage users' do
       page.should have_content('User was successfully updated.')
     end
 
-    current_path.should == admin_user_path(user, :locale => nil)
+    current_path.should == admin_user_path(user, locale: nil)
     page.should have_content('new@email.com')
   end
 
@@ -77,7 +77,7 @@ feature 'Admin can manage users' do
       page.should have_content('User was successfully updated.')
     end
 
-    current_path.should == admin_user_path(user, :locale => nil)
+    current_path.should == admin_user_path(user, locale: nil)
 
     user.reload
     user.should be_suspended

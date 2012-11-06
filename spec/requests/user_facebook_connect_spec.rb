@@ -8,16 +8,16 @@ feature 'Facebook connect' do
     visit root_path
 
     OmniAuth.config.mock_auth[:facebook] = {
-        :provider => 'facebook',
-        :uid => uid,
-        :credentials => {
-            :token => 'facebook token'
+        provider: 'facebook',
+        uid: uid,
+        credentials: {
+            token: 'facebook token'
         }
     }
   end
 
   context 'when an user is not connected with Facebook account' do
-    let(:user) { create(:user, :email => 'user@email.com') }
+    let(:user) { create(:user, email: 'user@email.com') }
 
     scenario 'connect with Facebook account' do
       click_link 'Accounts'

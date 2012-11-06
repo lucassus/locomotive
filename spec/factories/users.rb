@@ -18,7 +18,7 @@ FactoryGirl.define do
 
     trait :with_facebook_account do
       after(:create) do |user|
-        create(:user_account, :facebook, :user => user)
+        create(:user_account, :facebook, user: user)
       end
     end
   end
