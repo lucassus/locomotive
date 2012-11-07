@@ -60,4 +60,3 @@ You can fetch latest changes from base-app repository and merge or cherry-pick c
 * simple frontend made with twitter bootstrap
 * activeadmin panel with customized section for managing users
 * preconfigured rspec along with factory_girl, capybara and should matchers
-* ready for deploy on heroku (gem: heroku_san)

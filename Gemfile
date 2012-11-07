@@ -72,8 +72,6 @@ group :development, :test do
 end
 
 group :development do
-  # helpful stuffs for Heroku
-  gem 'heroku_san', require: false
   # gives information about your application in the footer
   gem 'rails-footnotes'
   # mutes assets pipeline log messages
