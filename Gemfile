@@ -30,6 +30,9 @@ gem 'foreigner'
 # Immigrant gives Foreigner a migration generator so you can effortlessly add missing foreign keys.
 gem 'immigrant'
 
+# Manage Procfile-based applications
+gem 'foreman'
+
 # ActiveAdmin dependencies
 # TODO reduce activeadmin load time
 gem 'activeadmin'
