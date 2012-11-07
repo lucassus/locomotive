@@ -31,3 +31,6 @@
 
 # Ignore .yardoc/
 /.yardoc
+
+# Ignore .evn config
+/.env
