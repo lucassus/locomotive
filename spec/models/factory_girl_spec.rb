@@ -6,7 +6,7 @@ describe FactoryGirl do
       subject { FactoryGirl.build(factory.name) }
 
       it "is valid" do
-        subject.valid?.should be, subject.errors.full_messages
+        expect(subject.valid?).to be_true
       end
     end
   end
