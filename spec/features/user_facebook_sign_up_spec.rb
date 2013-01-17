@@ -21,8 +21,9 @@ feature 'Sign up via Facebook' do
 
     within 'form#new_user' do
       fill_in 'Email', with: 'facebook@user.com'
-      fill_in 'Password', with: 'password'
-      fill_in 'Password confirmation', with: 'password'
+      find('#user_password').set 'password'
+      find('#user_password_confirmation').set 'password'
+
       click_button 'Sign up'
     end
 

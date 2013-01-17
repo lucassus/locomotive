@@ -6,9 +6,12 @@ module Macros
       visit root_path
       click_link 'Sign in'
 
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: options[:password]
-      click_button 'Sign in'
+      within 'form' do
+        find('#user_email').set user.email
+        find('#user_password').set options[:password]
+
+        click_button 'Sign in'
+      end
     end
 
     def logout

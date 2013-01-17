@@ -15,7 +15,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <%= render '/layouts/ga_code' if Settings.google_analytics.present? %>
+    <%= render '/layouts/ga_code' if Settings.google_analytics.enabled %>
     <link href="/favicon.ico" rel="shortcut icon">
   </head>
   <body>

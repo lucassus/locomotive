@@ -9,23 +9,15 @@ feature 'User profile' do
     click_link 'My profile'
   end
 
-  scenario 'an user can see his profile' do
-    page.should have_content('Edit User')
-
-    within 'form#edit_user' do
-      page.should have_field('Email')
-      page.should have_field('Password')
-      page.should have_field('Password confirmation')
-      page.should have_field('Current password')
-    end
-  end
-
   describe 'change password' do
     background do
-      fill_in 'Password', with: 'new password'
-      fill_in 'Password confirmation', with: 'new password'
-      fill_in 'Current password', with: 'password'
-      click_button 'Update'
+      within 'form' do
+        find('#user_password').set 'new password'
+        find('#user_password_confirmation').set 'new password'
+        find('#user_current_password').set 'password'
+
+        click_button 'Update'
+      end
     end
 
     scenario 'an user can see flash message' do

@@ -48,8 +48,9 @@ feature 'Admin can manage users' do
       page.should have_button('Update User')
 
       fill_in 'Email', with: 'new@email.com'
-      fill_in 'Password', with: 'password'
-      fill_in 'Password confirmation', with: 'password'
+      find('#user_password').set 'password'
+      find('#user_password_confirmation').set 'password'
+
       click_button 'Update User'
     end
 

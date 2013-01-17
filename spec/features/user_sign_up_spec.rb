@@ -6,22 +6,12 @@ feature 'Sign up' do
     click_link 'Sign up'
   end
 
-  scenario 'an user can see the sign in form' do
-    page.should have_content('Sign in')
-
-    within 'form#new_user' do
-      page.should have_field('Email')
-      page.should have_field('Password')
-      page.should have_field('Password confirmation')
-      page.should have_button('Sign up')
-    end
-  end
-
   describe 'when user provides valid credentials' do
     background do
       fill_in 'Email', with: 'new@user.com'
-      fill_in 'Password', with: 'password'
-      fill_in 'Password confirmation', with: 'password'
+      find('#user_password').set 'password'
+      find('#user_password_confirmation').set 'password'
+
       click_button 'Sign up'
     end
 

@@ -20,13 +20,17 @@ feature 'Sign in' do
 
   describe 'when an user provides valid credentials' do
     background do
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: 'password'
-      click_button 'Sign in'
+      within 'form' do
+        fill_in 'Email', with: user.email
+        find('#user_password').set 'password'
+
+        click_button 'Sign in'
+      end
     end
 
     scenario 'he should be logged in' do
       current_path.should == root_path
+
       page.should display_flash_message('Signed in successfully.')
       page.should have_content(user.email)
       page.should have_link('Sign out')
