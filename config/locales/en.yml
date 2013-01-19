@@ -9,6 +9,7 @@ en:
   links:
     home: 'Home'
     posts: 'Blog'
+    contact_us: 'Contact us'
   users:
     accounts: 'Accounts'
     sign_in: 'Sign in'

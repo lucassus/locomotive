@@ -21,3 +21,7 @@ en:
     # hints:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'
+  helpers:
+    submit:
+      message:
+        create: "Send"

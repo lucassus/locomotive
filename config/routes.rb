@@ -6,6 +6,8 @@ Locomotive::Application.routes.draw do
     devise_for :users, controllers: { registrations: 'registrations' }
     resources :user_accounts, only: [:index, :create, :destroy]
 
+    resources :messages, only: [:new, :create]
+
     root to: 'home#index'
   end
 
