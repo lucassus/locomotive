@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
 
   def new
-    @message = Message.new
+    email = current_user.email if user_signed_in?
+    @message = Message.new(email: email)
   end
 
   def create
