@@ -104,6 +104,8 @@ group :test do
   gem 'fuubar'
   gem 'shoulda-matchers'
   gem 'launchy'
+
+  gem 'curb'
   gem 'capybara'
   gem 'capybara-email'
   gem 'database_cleaner'

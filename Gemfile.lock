@@ -80,6 +80,7 @@ GEM
     columnize (0.3.6)
     commonjs (0.2.6)
     crack (0.3.2)
+    curb (0.8.3)
     daemons (1.1.9)
     database_cleaner (0.9.1)
     debugger (1.2.4)
@@ -393,6 +394,7 @@ DEPENDENCIES
   capybara
   capybara-email
   coffee-rails
+  curb
   database_cleaner
   debugger
   devise

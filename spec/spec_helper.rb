@@ -35,11 +35,23 @@ require 'awesome_print'
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 VCR.configure do |c|
+  c.ignore_localhost = true
   c.cassette_library_dir = File.expand_path('spec/vcr_cassettes', Rails.root)
   c.hook_into :webmock
 end
 
 OmniAuth.config.test_mode = true
+
+require 'selenium-webdriver'
+require 'selenium/webdriver/remote/http/curb'
+Capybara.register_driver :selenium do |app|
+  client = Selenium::WebDriver::Remote::Http::Curb.new
+  Capybara::Selenium::Driver.new(app, http_client: client)
+end
+
+Capybara.javascript_driver = :selenium
+Capybara.default_wait_time = 15
+Capybara.current_session.driver.reset!
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
