@@ -5,6 +5,7 @@ rvm:
   - 1.9.3
 
 before_script:
+  - "cp config/application.yml.example config/application.yml"
   - "cp config/database.yml.example config/database.yml"
   - psql -c 'create database myapp_test;' -U postgres
   - "RAILS_ENV=test rake db:create"
