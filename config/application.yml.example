@@ -2,9 +2,6 @@ defaults: &defaults
   app_name: Locomotive
   google_analytics:
     enabled: false
-  http_auth:
-    login: 'locomotive'
-    password: 'password'
   exception_notification:
     sender_address: 'error@locomotive.com'
     exception_recipients: 'recipient@locomotive.comcom'
