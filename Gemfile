@@ -96,6 +96,10 @@ group :development do
 
   # a code metric tool to check the quality of rails codes
   gem 'rails_best_practices', require: false
+
+  # Capistrano
+  gem 'capistrano'
+  gem 'capistrano-ext'
 end
 
 group :test do
