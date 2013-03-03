@@ -4,7 +4,7 @@ server "192.168.33.10", :app, :web, :db, primary: true
 
 set :application, "locomotive"
 set :repository, "git@github.com:lucassus/#{application}.git"
-# deploy from different branch: cap -S branch="<branchname>" deplot
+# deploy from different branch: cap -S branch="<branchname>" deploy
 set :branch, fetch(:branch, "master")
 set :scm, "git"
 
