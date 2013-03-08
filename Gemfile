@@ -58,6 +58,9 @@ group :assets do
   gem 'less-rails'
   gem 'twitter-bootstrap-rails'
   gem 'markitup_rails'
+
+  # Speeds up Rails 3 rake assets:precompile
+  gem 'turbo-sprockets-rails3'
 end
 
 group :development, :test do
