@@ -171,6 +171,7 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kgio (2.8.0)
     launchy (2.1.2)
       addressable (~> 2.3)
     less (2.2.2)
@@ -295,6 +296,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
+    raindrops (0.10.0)
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
@@ -388,6 +390,10 @@ GEM
     unf (0.0.5)
       unf_ext
     unf_ext (0.0.5)
+    unicorn (4.6.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     vcr (2.4.0)
     warden (1.2.1)
       rack (>= 1.0)
@@ -455,6 +461,7 @@ DEPENDENCIES
   thin
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  unicorn
   vcr
   webmock
   yard

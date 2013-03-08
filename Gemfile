@@ -40,6 +40,8 @@ gem 'activeadmin'
 group :production do
   # sending emails that include information about the current request, session, and environment, and also gives a backtrace of the exception
   gem 'exception_notification', require: false
+
+  gem 'unicorn'
 end
 
 # Gems used only for assets and not required
