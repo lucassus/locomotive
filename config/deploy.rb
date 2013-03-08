@@ -10,6 +10,7 @@ set :branch, fetch(:branch, "master")
 set :scm, "git"
 
 ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :user, application
