@@ -4,7 +4,7 @@ defaults: &defaults
     enabled: false
   exception_notification:
     sender_address: 'error@locomotive.com'
-    exception_recipients: 'recipient@locomotive.comcom'
+    exception_recipients: 'recipient@locomotive.com'
   omniauth:
     twitter:
       app_id: 'fill me'
