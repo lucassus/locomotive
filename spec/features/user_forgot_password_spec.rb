@@ -28,7 +28,7 @@ feature 'Reset password' do
     describe 'reset password email' do
       subject { current_email }
 
-      its(:from) { should include('donotreply@site.com') }
+      its(:from) { should include('locomotive@example.com') }
       its(:to) { should include('user@email.com') }
       its(:subject) { should == 'Reset password instructions' }
 
