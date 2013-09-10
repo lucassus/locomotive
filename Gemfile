@@ -71,7 +71,7 @@ group :development, :test do
   # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
   gem 'vcr', require: false
   # Library for stubbing and setting expectations on HTTP requests in Ruby. (required by vcr)
-  gem 'webmock', require: false
+  gem 'webmock', '< 1.12', require: false
 end
 
 group :development do
